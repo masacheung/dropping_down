@@ -1,5 +1,5 @@
 const CONSTANTS = {
-    GRAVITY:  0.4,
+    GRAVITY:  0.1,
     MOVE_SPEED:  8,
     TERMINAL_VEL:  12,
     PLAYER_WIDTH:  50,
@@ -29,11 +29,11 @@ export default class Player {
     }
 
     moveLeft() {
-        this.x -= 1 * CONSTANTS.MOVE_SPEED;
+        this.x -= 5 * CONSTANTS.MOVE_SPEED;
     }
 
     moveRight() {
-        this.x += 1 * CONSTANTS.MOVE_SPEED;
+        this.x += 5 * CONSTANTS.MOVE_SPEED;
     }
 
     animate(ctx) {

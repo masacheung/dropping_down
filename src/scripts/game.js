@@ -2,6 +2,7 @@ import Player from "./player";
 import Platform from "./platform";
 
 export default class Dropping {
+    debugger
     constructor (canvas){
         this.ctx = canvas.getContext("2d");
         this.diemsions = {width: canvas.width, height: canvas.height};
@@ -18,20 +19,24 @@ export default class Dropping {
         if (!this.running) {
           this.play();
         }
-        document.onkeydown = checkKey;
+        
+        window.addEventListener("keydown", (event) => {
+            switch (event.key){
+                case 'ArrowLeft':
+                    this.player.moveLeft();
+                    break;
+                case 'ArrowRight':
+                    this.player.moveRight();
+                    break;
+                case 'a':
+                    this.player.moveLeft();
+                    break;
+                case 'd':
+                    this.player.moveRight();
+                    break;
+            }
+        })
 
-        function checkKey(e) {
-            e = e || window.event;
-            
-            if(e.keycode === "37"){
-                // move left
-                this.player.moveLeft();
-            }
-            if (e.keycode === "39"){
-                // move right
-                this.player.moveRight();
-            }
-        }
       }
 
     play() {
@@ -47,18 +52,7 @@ export default class Dropping {
 
         this.animate();
     }
-
-    registerEvents() {
-        this.boundClickHandler = this.click.bind(this);
-        this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
-      }
     
-      click(e) {
-        if (!this.running) {
-          this.play();
-        } 
-      }
-
     animate() {
         this.platform.animate(this.ctx);
         this.player.animate(this.ctx);
