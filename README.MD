@@ -1,6 +1,6 @@
 Man Tat Masa Cheung
 
-**JavaScript Project**
+<h1>**JavaScript Project**</h1>
 
 **Overview**
 - Dopping Down is a one player game and the goal of this game is go down as many staris as possible.
