@@ -10,13 +10,40 @@
 
     <!-- CSS Style Sheet for HTML Page-->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- Using Phaser as a API to support the dropping down game -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.js"></script>
 
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="scoreboard-holder">
+        <div class="scoreboard">
+            <div class="hp-title">
+                HP
+            </div>
+            <div class="hp-bar" id="hp-bar">
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+                <div class="hp"></div>
+            </div>
+            <div class="score-wrapper">
+                <div class="score-text">
+                    HELL
+                    <span id="score">000</span>
+                    LEVEL
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/main.js"></script>
 </body>
 </html>
