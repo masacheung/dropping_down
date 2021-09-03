@@ -1,36 +1,63 @@
-const scale = 2;
+import Player from "./player";
+import Platform from "./platform";
 
-var game = new Phaser.Game(800, 800, Phaser.AUTO);
+export default class Dropping {
+    constructor (canvas){
+        this.ctx = canvas.getContext("2d");
+        this.diemsions = {width: canvas.width, height: canvas.height};
+        this.registerEvents();
+        this.restart();
+    }
 
-var player;
-var keyboard;
+    registerEvents() {
+        this.boundClickHandler = this.click.bind(this);
+        this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
+      }
+    
+      click(e) {
+        if (!this.running) {
+          this.play();
+        } 
+      }
 
-var platforms = [];
+    play() {
+        this.running = true;
+        this.animate();
+    }
 
-var leftWalls;
-var rightWalls;
-var ceilings;
+    restart() {
+        this.running = false;
+        this.score = 0;
+        this.player = new Player(this.diemsions);
+        this.platform = new Platform(this.diemsions);
 
-var text1;
-var text2;
-var text3;
+        this.animate();
+    }
 
-var distance = 0;
-var status = "running";
+    registerEvents() {
+        this.boundClickHandler = this.click.bind(this);
+        this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
+      }
+    
+      click(e) {
+        if (!this.running) {
+          this.play();
+        } 
+        this.bird.flap();
+      }
 
-const hpBar = document.getElementById("hp-bar");
-const score = document.getElementById("score");
+    animate() {
+        this.platform.animate(this.ctx);
+        this.player.animate(this.ctx);
 
-function create() {
-    keyboard = game.input.keyboard.addKeys({
-        enter: Phaser.Keyboard.ENTER,
-        up: Phaser.Keyboard.UP,
-        down: Phaser.Keyboard.DOWN,
-        left: Phaser.Keyboard.LEFT,
-        right: Phaser.Keyboard.RIGHT,
-        w: Phaser.Keyboard.W,
-        a: Phaser.Keyboard.A,
-        s: Phaser.Keyboard.S,
-        d: Phaser.keyboard.D
-    })
+        if (this.running) {
+            requestAnimationFrame(this.animate.bind(this));
+        }
+    }
+
+    gameOver() {
+        return (
+        this.platform.collidesWith(this.player.bounds()) || this.player.outOfBounds(this.height)
+        );
+    }
 }
