@@ -30,6 +30,8 @@ https://wireframe.cc/ypTdwI
     <li>HTML</li>
     <li>CSS</li>
     <li>Webkit</li>
+    <li>NPM</li>
+    <li>Parcel</li>
 </ul>
 
 

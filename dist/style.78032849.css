@@ -1,0 +1,112 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    font-size: 3em;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* .Instroction {
+    margin-top: 500px;
+} */
+
+/* h2 {
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+.scoreboard-holder {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreboard {
+    width: 800px;
+    padding: 0.5rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hp-title {
+    font-size: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.hp-bar {
+    border: 1px solid black;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.hp-empty {
+    border: 1px solid black;
+    width: 20px;
+    height: 40px;
+}
+
+.hp-active {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: yellow;
+    width: 20px;
+    height: 40px;
+    box-shadow: 0px 0px 15px 0px yellow;
+}
+
+.score-wrapper {
+    margin-top: 24px;
+}
+
+.score-text {
+    font-size: 3.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.1em;
+    background: -webkit-linear-gradient(white, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: red;
+
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    margin: auto;
+    border: 5px solid grey;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+/*# sourceMappingURL=/style.78032849.css.map */

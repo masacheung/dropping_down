@@ -1,0 +1,26 @@
+{
+  "name": "dropping_down",
+  "version": "1.0.0",
+  "description": "    Dopping Down is a one player game and the goal of this game is go down as many staris as possible. Create different kind of stairs, \"fake stairs\", \"death stairs\", etc. Player will have 10 health point. When player lose all health point \"GAME OVER\", When player drop down to the ground \"GAME OVER\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masacheung/dropping_down.git"
+  },
+  "keywords": [
+    "Dropping"
+  ],
+  "author": "Man Tat Masa Cheung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masacheung/dropping_down/issues"
+  },
+  "homepage": "https://github.com/masacheung/dropping_down#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

@@ -14,11 +14,11 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-.Instroction {
+/* .Instroction {
     margin-top: 500px;
-}
+} */
 
-h2 {
+/* h2 {
     font-size: 3em;
     font-weight: bold;
     display: flex;
@@ -27,7 +27,7 @@ h2 {
     background: -webkit-linear-gradient(white, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 
 .scoreboard-holder {
     width: 100%;
@@ -37,7 +37,7 @@ h2 {
 }
 
 .scoreboard {
-    width: 1000px;
+    width: 800px;
     padding: 0.5rem 2rem;
     display: flex;
     flex-direction: row;
@@ -93,4 +93,18 @@ h2 {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: red;
 
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    margin: auto;
+    border: 5px solid grey;
+    padding: 2px;
+    border-radius: 5px;
 }
