@@ -1,3 +1,53 @@
 body {
     background-color: aqua;
 }
+
+.scoreboard-holder {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreboard {
+    width: 1000px;
+    padding: 0.5rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hp-title {
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.hp-bar {
+    border: 1px solid black;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.hp-empty {
+    border: 1px solid black;
+    width: 20px;
+    height: 40px;
+}
+
+.hp-active {
+    border: 1px solid black;
+    background-color: yellow;
+    width: 20px;
+    height: 40px;
+    box-shadow: 0px 0px 15px 0px yellow;
+}
+
+.score-text {
+    font-size: 3em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.1em;
+}

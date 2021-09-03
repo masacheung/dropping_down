@@ -26,9 +26,10 @@ https://wireframe.cc/ypTdwI
 <h2>Technologies, Libraries, APIs**</h2>
 <ul>
     <li>Javascript</li>
+    <li>Phaser</li>
     <li>HTML</li>
     <li>CSS</li>
-    <li>Phaser</li>
+    <li>Webkit</li>
 </ul>
 
 
