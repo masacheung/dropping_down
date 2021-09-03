@@ -108,3 +108,42 @@ canvas {
     padding: 2px;
     border-radius: 5px;
 }
+
+.links {
+    display: flex;
+    width: 150px;
+    border-top: 500px;
+    flex-direction: row;
+    justify-content: space-evenly;    
+}
+
+.github {
+    background: url('../../assests/icon/github-logo.png');
+    background-size: cover;
+    border-radius: 15px;
+    width: 30px;
+    height: 30x;
+    cursor: pointer;
+}
+
+.linkedIn {
+    background: url('../../assests/icon/linkedIn.png');
+    background-size: cover;
+    border-radius: 3px;
+    width: 28px;
+    height: 28x;
+    cursor: pointer;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: white;
+    margin-bottom: 50px;
+    margin-top: 9px;
+}
