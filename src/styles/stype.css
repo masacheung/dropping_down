@@ -109,16 +109,21 @@ canvas {
     border-radius: 5px;
 }
 
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    align-items: center;
+}
+
 .links {
     display: flex;
     width: 150px;
-    border-top: 500px;
     flex-direction: row;
     justify-content: space-evenly;    
 }
 
 .github {
-    background: url('../../assests/icon/github-logo.png');
     background-size: cover;
     border-radius: 15px;
     width: 30px;
@@ -127,7 +132,6 @@ canvas {
 }
 
 .linkedIn {
-    background: url('../../assests/icon/linkedIn.png');
     background-size: cover;
     border-radius: 3px;
     width: 28px;
