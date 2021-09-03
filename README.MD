@@ -15,8 +15,7 @@ Functionality & MVPs
 
 Wireframes
 
-![Image of Wireframes]
-(https://github.com/masacheung/dropping_down/blob/main/wireframs.png)
+![Image of Wireframes](https://github.com/masacheung/dropping_down/blob/main/wireframs.png)
 
 https://wireframe.cc/ypTdwI
 
