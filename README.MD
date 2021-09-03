@@ -14,6 +14,7 @@ Functionality & MVPs
 - Navigate the character by using "A", "D" keys OR arrow keys
 
 Wireframes
+https://wireframe.cc/ypTdwI
 
 Technologies, Libraries, APIs
 - Javascript
