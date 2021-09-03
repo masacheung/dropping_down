@@ -35,8 +35,8 @@ https://wireframe.cc/ypTdwI
 
 <h2>Implementation Timeline</h2>
 <ul>
-    <li>Friday: Getting the game running and show up on the screen. And try to finish the HTML part as possible.</li>
-    <li>Monday: Can genrate the "stairs" and the game kind of functional.</li>
+    <li>Friday: Finish the HTML setup. Title, Health Point, Scoure, Game Canvas, Instroction. Create the game and character can drop down to touch "GAME OVER"</li>
+    <li>Monday: Can genrate the "stairs" and can controll the character move left or right to drop down.</li>
     <li>Tuesday: Finish up the dropping down game.</li>
     <li>Wednesday: Apply CSS and design to the layout from the wireframe and any bugs still occuring.</li>
     <li>Thursday: Deploy to Github Page.</li>

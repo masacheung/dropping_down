@@ -14,11 +14,29 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
+.Instroction {
+    margin-top: 500px;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .scoreboard-holder {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    right: 0px;
+    width: 90%;
 }
 
 .scoreboard {
