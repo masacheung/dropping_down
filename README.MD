@@ -15,7 +15,7 @@ Functionality & MVPs
 
 Wireframes
 ![Image of Wireframes]
-(https://wireframe.cc/ypTdwI)
+(wireframs.png)
 
 Technologies, Libraries, APIs
 - Javascript
