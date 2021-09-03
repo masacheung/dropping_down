@@ -19,7 +19,7 @@ Man Tat Masa Cheung
 
 <h2>Wireframes</h2>
 
-![Image of Wireframes](https://github.com/masacheung/dropping_down/blob/main/wireframs.png)
+![Image of Wireframes](https://github.com/masacheung/dropping_down/blob/main/assests/wireframs.png)
 
 https://wireframe.cc/ypTdwI
 
