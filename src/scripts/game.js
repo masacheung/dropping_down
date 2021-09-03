@@ -17,7 +17,21 @@ export default class Dropping {
       click(e) {
         if (!this.running) {
           this.play();
-        } 
+        }
+        document.onkeydown = checkKey;
+
+        function checkKey(e) {
+            e = e || window.event;
+            
+            if(e.keycode === "37"){
+                // move left
+                this.player.moveLeft();
+            }
+            if (e.keycode === "39"){
+                // move right
+                this.player.moveRight();
+            }
+        }
       }
 
     play() {
@@ -43,12 +57,16 @@ export default class Dropping {
         if (!this.running) {
           this.play();
         } 
-        this.bird.flap();
       }
 
     animate() {
         this.platform.animate(this.ctx);
         this.player.animate(this.ctx);
+
+        // if (this.gameOver()) {
+        //     alert(this.score);
+        //     this.restart();
+        // }
 
         if (this.running) {
             requestAnimationFrame(this.animate.bind(this));

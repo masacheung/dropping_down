@@ -1,6 +1,6 @@
 const CONSTANTS = {
     GRAVITY:  0.4,
-    FLAP_SPEED:  8,
+    MOVE_SPEED:  8,
     TERMINAL_VEL:  12,
     PLAYER_WIDTH:  50,
     PLAYER_HEIGHT:  80
@@ -26,6 +26,14 @@ export default class Player {
                 this.vel = CONSTANTS.TERMINAL_VEL * -1;
             }
         }
+    }
+
+    moveLeft() {
+        this.x -= 1 * CONSTANTS.MOVE_SPEED;
+    }
+
+    moveRight() {
+        this.x += 1 * CONSTANTS.MOVE_SPEED;
     }
 
     animate(ctx) {
