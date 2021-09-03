@@ -1,5 +1,17 @@
 body {
-    background-color: aqua;
+    background-color: black;
+}
+
+h1 {
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .scoreboard-holder {
@@ -18,9 +30,14 @@ body {
 }
 
 .hp-title {
-    font-size: 3em;
+    font-size: 2em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .hp-bar {
@@ -46,8 +63,18 @@ body {
     box-shadow: 0px 0px 15px 0px yellow;
 }
 
+.score-wrapper {
+    margin-top: 20px;
+}
+
 .score-text {
-    font-size: 3em;
+    font-size: 3.5em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 0.1em;
+    background: -webkit-linear-gradient(white, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: red;
+
 }
