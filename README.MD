@@ -14,8 +14,11 @@ Functionality & MVPs
 - Navigate the character by using "A", "D" keys OR arrow keys
 
 Wireframes
+
 ![Image of Wireframes]
-(wireframs.png)
+(https://github.com/masacheung/dropping_down/blob/main/wireframs.png)
+
+https://wireframe.cc/ypTdwI
 
 Technologies, Libraries, APIs
 - Javascript
