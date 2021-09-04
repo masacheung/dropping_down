@@ -42,7 +42,7 @@ export default class Player {
     }
 
     drawPlayer(ctx) {
-        ctx.fillStyle = "#444444";
+        ctx.fillStyle = "#D3D3D3";
         ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
     }
 
