@@ -1,6 +1,9 @@
 import Player from "./player";
 import Platform from "./platform";
 
+const hpBar = document.getElementById("hp-bar");
+const score = document.getElementById("score");
+
 export default class Dropping {
     debugger
     constructor (canvas){
