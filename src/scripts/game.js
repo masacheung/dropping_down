@@ -60,10 +60,10 @@ export default class Dropping {
         this.platform.animate(this.ctx);
         this.player.animate(this.ctx);
 
-        // if (this.gameOver()) {
-        //     alert(this.score);
-        //     this.restart();
-        // }
+        if (this.gameOver()) {
+            alert(this.score);
+            this.restart();
+        }
 
         if (this.running) {
             requestAnimationFrame(this.animate.bind(this));
@@ -71,8 +71,6 @@ export default class Dropping {
     }
 
     gameOver() {
-        return (
-        this.platform.collidesWith(this.player.bounds()) || this.player.outOfBounds(this.height)
-        );
+        return this.player.outOfBounds();
     }
 }
