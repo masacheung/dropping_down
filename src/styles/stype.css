@@ -73,6 +73,13 @@ h1 {
     margin-top: 75px;
 }
 
+.game-play {
+    width: 91%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .scoreboard {
     width: 800px;
     padding: 0.5rem 2rem;
@@ -100,6 +107,10 @@ h1 {
     display: flex;
     flex-direction: row;
 }
+
+.wd, .left-right{
+    display: flex;
+    flex-direction: row;}
 
 .hp-empty {
     border: 1px solid black;
@@ -152,7 +163,6 @@ canvas {
     border: 5px solid grey;
     padding: 2px;
     border-radius: 5px;
-    margin-top: -815px;
 }
 
 .info {
@@ -196,4 +206,45 @@ canvas {
     color: white;
     margin-bottom: 50px;
     margin-top: 9px;
+}
+
+.start {
+    margin-top: -400;
+    /* display: none; */
+}
+
+.controller {
+    display: block;
+    justify-content: center;
+    align-content: center;
+}
+
+.w, .d, .left, .right {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    width: 20px;
+    height: 17px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    color: white;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.start {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+}
+
+#img-char {
+    width: 50;
+    display: none;
+}
+
+#img-bg {
+    display: none;
 }

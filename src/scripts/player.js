@@ -2,10 +2,11 @@ const CONSTANTS = {
     GRAVITY:  0.05,
     MOVE_SPEED:  8,
     TERMINAL_VEL:  12,
-    PLAYER_WIDTH:  50,
+    PLAYER_WIDTH:  70,
     PLAYER_HEIGHT:  80
   };
-  
+
+
 
 export default class Player {
     constructor(dimensions) {
@@ -13,6 +14,7 @@ export default class Player {
         this.x = this.dimensions.width /2.25;
         this.y = this.dimensions.height / 8;
         this.vel = 0;
+        this.img = document.getElementById("img-char");
     }
 
     movePlayer() {
@@ -30,13 +32,13 @@ export default class Player {
 
     moveLeft() {
         if (this.x > 0){
-            this.x -= 5 * CONSTANTS.MOVE_SPEED;
+            this.x -= 3 * CONSTANTS.MOVE_SPEED;
         }
     }
 
     moveRight() {
         if (this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
-            this.x += 5 * CONSTANTS.MOVE_SPEED;
+            this.x += 3 * CONSTANTS.MOVE_SPEED;
         }
     }
 
@@ -46,14 +48,15 @@ export default class Player {
     }
 
     drawPlayer(ctx) {
-        ctx.fillStyle = "#D3D3D3";
-        ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
+        // ctx.fillStyle = "#D3D3D3";
+        // ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
+        ctx.drawImage(this.img, this.x ,this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
     }
 
     bounds() {
         return {
             left: this.x,
-            right: this.x + 50,
+            right: this.x + 55,
             top: this.y,
             bottom: this.y + 80
         };

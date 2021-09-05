@@ -3,9 +3,16 @@ import Platform from "./platform";
 
 const hpBar = document.getElementById("hp-bar");
 const score = document.getElementById("score");
+const start = document.getElementById("start");
+
+const GAMESTATUS = {
+    PAUSED: 0,
+    RUNNING: 1,
+    MENU: 2,
+    GAMEOVE: 3
+}
 
 export default class Dropping {
-    debugger
     constructor (canvas){
         this.ctx = canvas.getContext("2d");
         this.diemsions = {width: canvas.width, height: canvas.height};
@@ -17,8 +24,9 @@ export default class Dropping {
         this.boundClickHandler = this.click.bind(this);
         this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
       }
+
     
-      click(e) {
+    click(e) {
         if (!this.running) {
           this.play();
         }
@@ -37,6 +45,9 @@ export default class Dropping {
                 case 'd':
                     this.player.moveRight();
                     break;
+                case 'Spacebar':
+                    this.togglePause();
+                    break;
             }
         })
 
@@ -44,11 +55,13 @@ export default class Dropping {
 
     play() {
         this.running = true;
+        this.gamestatus = GAMESTATUS.RUNNING;
         this.animate();
     }
 
     restart() {
         this.running = false;
+        this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
         this.player = new Player(this.diemsions);
         this.platform = new Platform(this.diemsions);
@@ -72,5 +85,13 @@ export default class Dropping {
 
     gameOver() {
         return this.player.outOfBounds();
+    }
+
+    togglePause() {
+        if(this.gamestatus == GAMESTATUS.PAUSED){
+            this.gamestatus = GAMESTATUS.RUNNING;
+        } else {
+            this.gamestatus = GAMESTATUS.PAUSED;
+        }
     }
 }

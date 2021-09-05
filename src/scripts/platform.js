@@ -3,6 +3,7 @@ const scale = 2;
 export default class Platform {
     constructor(dimensions) {
         this.dimensions = dimensions;
+        this.img = document.getElementById("img-bg");
         this.platform = [];
     }
 
@@ -13,9 +14,10 @@ export default class Platform {
     drawBackground(ctx) {
         // ctx.fillStyle = "#800000";
         // ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
-        ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
-        ctx.fillStyle = "rgba(0,0,0,0.3)";
-        ctx.fillRect(0,0,this.dimensions.width,this.dimensions.height);
+        // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+        // ctx.fillStyle = "rgba(0,0,0,0.3)";
+        // ctx.fillRect(0,0,this.dimensions.width,this.dimensions.height);
+        ctx.drawImage(this.img, 0 , 0, this.dimensions.width,this.dimensions.height);
     }
 
     createPlatform() {
