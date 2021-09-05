@@ -61,7 +61,7 @@ export default class Player {
 
     outOfBounds() {
         const aboveTheTop = this.y < 0;
-        const belowTheBottom = this.y + CONSTANTS.PLAYER_HEIGHT > this.dimensions.height;
+        const belowTheBottom = this.y + (CONSTANTS.PLAYER_HEIGHT/5) > this.dimensions.height;
         return aboveTheTop || belowTheBottom;
     }
 
