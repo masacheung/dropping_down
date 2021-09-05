@@ -23,7 +23,7 @@ export default class Dropping {
     registerEvents() {
         this.boundClickHandler = this.click.bind(this);
         this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
-      }
+    }
 
     
     click(e) {

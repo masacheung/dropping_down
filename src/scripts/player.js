@@ -83,7 +83,7 @@ export default class Player {
 
     touchOn(platforms){
         platforms.forEach((ele) => {
-            if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 75) {
+            if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 25) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
                     this.touch = ele;
                 }else {
