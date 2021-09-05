@@ -29,11 +29,15 @@ export default class Player {
     }
 
     moveLeft() {
-        this.x -= 5 * CONSTANTS.MOVE_SPEED;
+        if (this.x > 0){
+            this.x -= 5 * CONSTANTS.MOVE_SPEED;
+        }
     }
 
     moveRight() {
-        this.x += 5 * CONSTANTS.MOVE_SPEED;
+        if (this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
+            this.x += 5 * CONSTANTS.MOVE_SPEED;
+        }
     }
 
     animate(ctx) {
@@ -60,4 +64,5 @@ export default class Player {
         const belowTheBottom = this.y + CONSTANTS.PLAYER_HEIGHT > this.dimensions.height;
         return aboveTheTop || belowTheBottom;
     }
+
 }
