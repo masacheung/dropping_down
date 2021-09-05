@@ -15,6 +15,7 @@ const start = document.getElementById("start");
 export default class Dropping {
     constructor (canvas){
         this.ctx = canvas.getContext("2d");
+        this.gameoverAUDIO = document.getElementById("fall");
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
         this.restart();
@@ -77,8 +78,9 @@ export default class Dropping {
         // this.player.touchOn(this.platform.platforms);
 
         if (this.gameOver()) {
-            alert(this.score);
+            this.gameoverAUDIO.play();
             this.restart();
+            alert(this.score);
         }
 
         if (this.running) {
