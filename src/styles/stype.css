@@ -252,3 +252,7 @@ canvas {
 #img-fire, #img-wire {
     display: none;
 }
+
+#img-normal {
+    display: none;
+}
