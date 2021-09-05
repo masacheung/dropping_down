@@ -15,19 +15,31 @@ export default class Player {
         this.y = 0;
         this.vel = 0;
         this.img = document.getElementById("img-char");
+        this.life = 10;
+        this.touch = undefined;
+        this.platforms;
     }
 
     movePlayer() {
-        this.y += this.vel;
-        this.vel += CONSTANTS.GRAVITY;
+        if (this.touch === undefined){
+            this.y += this.vel;
+            this.vel += CONSTANTS.GRAVITY;
 
-        if (Math.abs(this.vel) > CONSTANTS.TERMINAL_VEL){
-            if (this.vel > 0){
-                this.vel = CONSTANTS.TERMINAL_VEL;
-            }else {
-                this.vel = CONSTANTS.TERMINAL_VEL * -1;
+            if (Math.abs(this.vel) > CONSTANTS.TERMINAL_VEL){
+                if (this.vel > 0){
+                    this.vel = CONSTANTS.TERMINAL_VEL;
+                }else {
+                    this.vel = CONSTANTS.TERMINAL_VEL * -1;
+                }
+            }
+        } else {
+            this.y = this.touch[1] - 70;
+            this.vel = 0;
+            if (this.x > this.touch[0] || this.x < this.touch[0]){
+                this.touch = undefined;
             }
         }
+        this.touchOn(this.platforms);
     }
 
     moveLeft() {
@@ -42,7 +54,8 @@ export default class Player {
         }
     }
 
-    animate(ctx) {
+    animate(ctx, platforms) {
+        this.platforms = platforms;
         this.movePlayer();
         this.drawPlayer(ctx);
     }
@@ -56,16 +69,28 @@ export default class Player {
     bounds() {
         return {
             left: this.x,
-            right: this.x + 55,
+            right: this.x + 75,
             top: this.y,
             bottom: this.y + 80
         };
     }
 
     outOfBounds() {
-        const aboveTheTop = this.y < 0;
+        const aboveTheTop = this.y + (CONSTANTS.PLAYER_HEIGHT / 5) < 0;
         const belowTheBottom = this.y + (CONSTANTS.PLAYER_HEIGHT/5) > this.dimensions.height;
         return aboveTheTop || belowTheBottom;
+    }
+
+    touchOn(platforms){
+        // debugger
+        platforms.forEach((ele) => {
+            if (Math.floor(this.y + 25) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 25) - Math.floor(ele[1]) < 75) {
+                if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
+                    this.touch = ele;
+                    console.log("HELO");
+                }
+            }
+        });
     }
 
 }

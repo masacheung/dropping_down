@@ -38,7 +38,9 @@ export default class Platform {
 
     createPlatform() {
         if (!this.platforms.length) {
-            this.platforms.push(this.createOnePlatform());
+            let temp = this.createOnePlatform();
+            temp[1] += 210;
+            this.platforms.push(temp);
         }
         while (this.platforms.length < 8){
             let temp = this.createOnePlatform();
@@ -89,4 +91,5 @@ export default class Platform {
             ctx.drawImage(this.platformImg, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
         });
     }
+
 }

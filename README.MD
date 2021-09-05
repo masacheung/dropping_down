@@ -50,3 +50,6 @@ https://wireframe.cc/ypTdwI
 </ul>
 
 <h2>Credits</h2>
+<ul>
+    <li>Amoung Us -- Pic</li>
+</ul>
