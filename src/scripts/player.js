@@ -18,6 +18,8 @@ export default class Player {
         this.life = 10;
         this.touch = undefined;
         this.platforms;
+        this.platformAudio = document.getElementById("normal");
+
     }
 
     movePlayer() {
@@ -86,6 +88,7 @@ export default class Player {
             if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 25) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
                     this.touch = ele;
+                    this.platformAudio.play();
                 }else {
                     this.touch = undefined;
                 }
