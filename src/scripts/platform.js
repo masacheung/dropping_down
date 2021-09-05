@@ -19,7 +19,9 @@ export default class Platform {
     animate(ctx) {
         this.drawBackground(ctx);
         // this.movePlatform();
-        this.createOnePlatform();
+        // this.createOnePlatform();
+        this.createPlatform();
+        this.movePlatform();
         this.drawPlatform(ctx);
     }
 
@@ -35,13 +37,23 @@ export default class Platform {
     }
 
     createPlatform() {
-
+        if (!this.platforms.length) {
+            this.platforms.push(this.createOnePlatform());
+        }
+        while (this.platforms.length < 8){
+            let temp = this.createOnePlatform();
+            let last = this.platforms[this.platforms.length - 1];
+            temp[1] = last[1] + 150;
+            if (temp[0] - CONSTANTS.PLATFORMWIDTH > 0 && temp[0] + CONSTANTS.PLATFORMWIDTH < 800 && ((last[0] - temp[0]) > 150 || (temp[0] - last[0]) > 150)){
+                this.platforms.push(temp);
+            }
+        }
     }
 
     createOnePlatform() {
         let platform;
         let x = Math.random() * 800;
-        let y = Math.random() * 800;
+        let y = 125;
         let rand = Math.random() * 100;
 
         let platformType = "normal";
@@ -58,11 +70,18 @@ export default class Platform {
         //     platformType = "fake";
         // }
 
-        this.platforms.push([x,y]);
+        platform = [x,y];
+        return platform;
     }
 
     movePlatform() {
-
+        for(let i = 0; i < this.platforms.length; i++){
+            let platform = this.platforms[i];
+            this.platforms[i][1] -= 2;
+            if (this.platforms[i][1] <= -32){
+                this.platforms.splice(i, 1);
+            }
+        }
     }
 
     drawPlatform(ctx) {
