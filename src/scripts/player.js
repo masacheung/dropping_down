@@ -2,7 +2,7 @@ const CONSTANTS = {
     GRAVITY:  0.05,
     MOVE_SPEED:  8,
     TERMINAL_VEL:  12,
-    PLAYER_WIDTH:  70,
+    PLAYER_WIDTH:  75,
     PLAYER_HEIGHT:  80
   };
 
@@ -12,7 +12,7 @@ export default class Player {
     constructor(dimensions) {
         this.dimensions = dimensions;
         this.x = this.dimensions.width /2.25;
-        this.y = this.dimensions.height / 8;
+        this.y = 0;
         this.vel = 0;
         this.img = document.getElementById("img-char");
     }
@@ -50,7 +50,7 @@ export default class Player {
     drawPlayer(ctx) {
         // ctx.fillStyle = "#D3D3D3";
         // ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
-        ctx.drawImage(this.img, this.x ,this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
+        ctx.drawImage(this.img, this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
     }
 
     bounds() {

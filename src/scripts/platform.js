@@ -4,6 +4,8 @@ export default class Platform {
     constructor(dimensions) {
         this.dimensions = dimensions;
         this.img = document.getElementById("img-bg");
+        this.fireImg = document.getElementById("img-fire");
+        this.wireImg = document.getElementById("img-wire");
         this.platform = [];
     }
 
@@ -18,6 +20,8 @@ export default class Platform {
         // ctx.fillStyle = "rgba(0,0,0,0.3)";
         // ctx.fillRect(0,0,this.dimensions.width,this.dimensions.height);
         ctx.drawImage(this.img, 0 , 0, this.dimensions.width,this.dimensions.height);
+        ctx.drawImage(this.fireImg, 0, 370, this.dimensions.width, 700);
+        ctx.drawImage(this.wireImg, -50, -45, 900, 100);
     }
 
     createPlatform() {

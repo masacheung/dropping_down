@@ -57,13 +57,13 @@ export default class Dropping {
 
     play() {
         this.running = true;
-        this.gamestatus = GAMESTATUS.RUNNING;
+        // this.gamestatus = GAMESTATUS.RUNNING;
         this.animate();
     }
 
     restart() {
         this.running = false;
-        this.gamestatus = GAMESTATUS.GAMEOVE;
+        // this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
         this.player = new Player(this.diemsions);
         this.platform = new Platform(this.diemsions);

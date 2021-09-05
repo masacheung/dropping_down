@@ -240,11 +240,15 @@ canvas {
     width: 70px;
 }
 
-#img-char {
+#img-char, #img-char-left{
     width: 50;
     display: none;
 }
 
 #img-bg {
+    display: none;
+}
+
+#img-fire, #img-wire {
     display: none;
 }
