@@ -33,7 +33,7 @@ export default class Player {
                 }
             }
         } else {
-            this.y = this.touch[1] - 70;
+            this.y -= 2;
             this.vel = 0;
             if (this.x > this.touch[0] || this.x < this.touch[0]){
                 this.touch = undefined;
@@ -82,12 +82,12 @@ export default class Player {
     }
 
     touchOn(platforms){
-        // debugger
         platforms.forEach((ele) => {
-            if (Math.floor(this.y + 25) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 25) - Math.floor(ele[1]) < 75) {
+            if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 75) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
                     this.touch = ele;
-                    console.log("HELO");
+                }else {
+                    this.touch = undefined;
                 }
             }
         });
