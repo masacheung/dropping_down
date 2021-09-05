@@ -5,12 +5,12 @@ const hpBar = document.getElementById("hp-bar");
 const score = document.getElementById("score");
 const start = document.getElementById("start");
 
-const GAMESTATUS = {
-    PAUSED: 0,
-    RUNNING: 1,
-    MENU: 2,
-    GAMEOVE: 3
-}
+// const GAMESTATUS = {
+//     PAUSED: 0,
+//     RUNNING: 1,
+//     MENU: 2,
+//     GAMEOVE: 3
+// }
 
 export default class Dropping {
     constructor (canvas){
@@ -31,6 +31,8 @@ export default class Dropping {
           this.play();
         }
         
+        // if (this.gamestatus === GAMESTATUS.PAUSED) return;
+
         window.addEventListener("keydown", (event) => {
             switch (event.key){
                 case 'ArrowLeft':
@@ -45,9 +47,9 @@ export default class Dropping {
                 case 'd':
                     this.player.moveRight();
                     break;
-                case 'Spacebar':
-                    this.togglePause();
-                    break;
+                // case 'Spacebar':
+                //     this.togglePause();
+                //     break;
             }
         })
 
@@ -87,11 +89,11 @@ export default class Dropping {
         return this.player.outOfBounds();
     }
 
-    togglePause() {
-        if(this.gamestatus == GAMESTATUS.PAUSED){
-            this.gamestatus = GAMESTATUS.RUNNING;
-        } else {
-            this.gamestatus = GAMESTATUS.PAUSED;
-        }
-    }
+    // togglePause() {
+    //     if(this.gamestatus === GAMESTATUS.PAUSED){
+    //         this.gamestatus = GAMESTATUS.RUNNING;
+    //     } else {
+    //         this.gamestatus = GAMESTATUS.PAUSED;
+    //     }
+    // }
 }
