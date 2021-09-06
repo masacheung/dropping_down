@@ -20,7 +20,9 @@ export default class Player {
         this.platforms;
         this.running = running;
         this.visited = [];
+        this.ctx;
         this.platformAudio = document.getElementById("normal");
+        this.platformHealingAudio = document.getElementById("healing");
         this.platformTrampolineAudio = document.getElementById("trampoline");
         this.platformTrapAudio = document.getElementById("trap");
     }
@@ -68,6 +70,7 @@ export default class Player {
     animate(ctx, platforms, running) {
         this.platforms = platforms;
         this.running = running;
+        this.ctx = ctx;
         this.movePlayer();
         this.updateHpBar();
         this.drawPlayer(ctx);
@@ -106,13 +109,17 @@ export default class Player {
                     }else if (!this.visited.includes(ele[3])){
                         this.visited.push(ele[3]);
                         if (ele[2] === "normal"){
-                            this.platformAudio.play();
                             if (this.life < 10){
                                 this.life += 1;
+                                this.platformHealingAudio.play();
+                                this.healGreen(this.ctx);
                                 this.updateHpBar();
+                            }else {
+                                this.platformAudio.play();
                             }
                         }else if (ele[2] === "trap"){
                             this.platformTrapAudio.play();
+                            this.trapRed(this.ctx);
                             this.life -= 4;
                             this.updateHpBar();
                         }
@@ -145,5 +152,17 @@ export default class Player {
         empties.forEach( (ele) => {
             ele.className = "hp-empty";
         });
+    }
+
+    trapRed(ctx) {
+        ctx.fillStyle = "#ff1a1a";
+        ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
+        ctx.fillStyle = "rgba(0,0,0,0.3)";
+    }
+
+    healGreen(ctx) {
+        ctx.fillStyle = "#008000";
+        ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
+        ctx.fillStyle = "rgba(0,0,0,0.3)";
     }
 }
