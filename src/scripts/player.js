@@ -6,7 +6,7 @@ const CONSTANTS = {
     PLAYER_HEIGHT:  80
   };
 
-
+const hpBar = document.getElementById("hp-bar");
 
 export default class Player {
     constructor(dimensions) {
@@ -87,13 +87,15 @@ export default class Player {
         platforms.forEach((ele) => {
             if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 25) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
+                    let temp = this.touch;
                     this.touch = ele;
-                    this.platformAudio.play();
+                    if (temp === undefined || temp[2] !== ele[2]){
+                        this.platformAudio.play();
+                    }
                 }else {
                     this.touch = undefined;
                 }
             }
         });
     }
-
 }

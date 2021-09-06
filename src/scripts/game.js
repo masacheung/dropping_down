@@ -1,8 +1,7 @@
 import Player from "./player";
 import Platform from "./platform";
 
-const hpBar = document.getElementById("hp-bar");
-const score = document.getElementById("score");
+const SCORE = document.getElementById("score");
 const start = document.getElementById("start");
 
 // const GAMESTATUS = {
@@ -54,11 +53,14 @@ export default class Dropping {
             }
         })
 
-      }
+    }
 
     play() {
         this.running = true;
         // this.gamestatus = GAMESTATUS.RUNNING;
+        let start = new Date();
+        this.min = start.getMinutes();
+        this.sec = start.getSeconds();
         this.animate();
     }
 
@@ -87,6 +89,7 @@ export default class Dropping {
             requestAnimationFrame(this.animate.bind(this));
         }
 
+        this.countScore();
     }
 
     gameOver() {
@@ -100,4 +103,23 @@ export default class Dropping {
     //         this.gamestatus = GAMESTATUS.PAUSED;
     //     }
     // }
+
+    countScore() {
+        let time = new Date();
+        let tempMin = time.getMinutes();
+        let tempSecound = time.getSeconds();
+        let score;
+
+        if (tempMin > this.min){
+            let ex = tempMin - this.min;
+            tempSecound = tempSecound + (ex * 60);
+            score = tempSecound - this.sec;
+        }else {
+            score = tempSecound - this.sec;
+        }
+
+        this.score = Math.floor(score / 2);
+        SCORE.innerHTML =this.score;
+    }
+
 }

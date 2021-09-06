@@ -5,6 +5,7 @@ const CONSTANTS = {
     PLATFORMSPEED: 2
 }
 
+const TAG = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 export default class Platform {
     constructor(dimensions) {
@@ -57,6 +58,7 @@ export default class Platform {
         let x = Math.random() * 800;
         let y = 125;
         let rand = Math.random() * 100;
+        let idx = Math.random(26);
 
         let platformType = "normal";
         // if (rand < 50) {
@@ -72,8 +74,9 @@ export default class Platform {
         //     platformType = "fake";
         // }
 
-        platform = [x,y];
+        platform = [x, y, TAG[idx]];
         return platform;
+
     }
 
     movePlatform() {
