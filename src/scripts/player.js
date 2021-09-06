@@ -19,7 +19,8 @@ export default class Player {
         this.touch = undefined;
         this.platforms;
         this.platformAudio = document.getElementById("normal");
-
+        this.platformTrampolineAudio = document.getElementById("trampoline");
+        this.platformTrapAudio = document.getElementById("trap");
     }
 
     movePlayer() {
@@ -35,8 +36,20 @@ export default class Player {
                 }
             }
         } else {
-            this.y -= 2;
-            this.vel = 0;
+            if (this.touch[2] === "normal"){
+                this.y -= 2;
+                this.vel = 0;
+                if (this.life < 10){
+                    this.life += 1;
+                }
+            }else if (this.touch[2] === "trampoline"){
+                this.y -= 125;
+                this.vel = 0;
+            }else if (this.touch[2] === "trap"){
+                this.life -= 2;
+                this.y -=2;
+                this.vel = 0;
+            }
             if (this.x > this.touch[0] || this.x < this.touch[0]){
                 this.touch = undefined;
             }
@@ -87,10 +100,13 @@ export default class Player {
         platforms.forEach((ele) => {
             if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 25) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
-                    let temp = this.touch;
                     this.touch = ele;
-                    if (temp === undefined || temp[2] !== ele[2]){
+                    if (ele[2] === "normal"){
                         this.platformAudio.play();
+                    }else if (ele[2] === "trampoline"){
+                        this.platformTrampolineAudio.play();
+                    }else if (ele[2] === "trap"){
+                        this.platformTrapAudio.play();
                     }
                 }else {
                     this.touch = undefined;

@@ -14,6 +14,8 @@ export default class Platform {
         this.fireImg = document.getElementById("img-fire");
         this.wireImg = document.getElementById("img-wire");
         this.platformImg = document.getElementById("img-normal");
+        this.platformImgTrampoline = document.getElementById("img-trampoline");
+        this.platformImgTrap = document.getElementById("img-trap");
         this.platforms = [];
     }
 
@@ -61,22 +63,26 @@ export default class Platform {
         let idx = Math.random(26);
 
         let platformType = "normal";
-        // if (rand < 50) {
-        //     platform = [x,y,"normal"];
-        // }else if (rand < 60) {
-        //     platform = [x,y,"nails"];
-        //     platformType = "nails";
-        // }else if (ramd <80) {
-        //     platform = [x,y,"jump"];
-        //     platformType = "jump";
+
+        if (rand < 50) {
+            platformType = "normal";
+        }else if (rand < 60) {
+            platformType = "trap";
+        }else if (rand < 80) {
+            platformType = "trampoline";
+        }else {
+            platformType = "normal";
+        }
+
+        // if (rand < 50){
+        //     platformType = "normal";
         // }else {
-        //     platform = [x,y,"fake"];
-        //     platformType = "fake";
+        //     platformType = "trampoline";
         // }
 
-        platform = [x, y, TAG[idx]];
-        return platform;
 
+        platform = [x, y, platformType];
+        return platform;
     }
 
     movePlatform() {
@@ -91,7 +97,13 @@ export default class Platform {
 
     drawPlatform(ctx) {
         this.platforms.forEach((ele) => {
-            ctx.drawImage(this.platformImg, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+            if (ele[2] === "normal"){
+                ctx.drawImage(this.platformImg, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+            }else if (ele[2] === "trap") {
+                ctx.drawImage(this.platformImgTrap, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+            }else {
+                ctx.drawImage(this.platformImgTrampoline, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+            }
         });
     }
 
