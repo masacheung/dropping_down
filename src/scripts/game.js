@@ -124,7 +124,9 @@ export default class Dropping {
             let ex = tempMin - this.min;
             tempSecound = tempSecound + (ex * 60);
             score = tempSecound - this.sec;
-        }else {
+        }else if (tempMin === this.min && tempSecound < this.sec){
+            score = this.sec - tempSecound;
+        } else {
             score = tempSecound - this.sec;
         }
 

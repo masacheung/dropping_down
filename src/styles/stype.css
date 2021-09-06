@@ -265,6 +265,10 @@ canvas {
     display: none;
 }
 
+#img-fake {
+    display: none;
+}
+
 #img-start {
     display: none;
 }

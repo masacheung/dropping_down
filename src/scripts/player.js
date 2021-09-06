@@ -25,6 +25,7 @@ export default class Player {
         this.platformHealingAudio = document.getElementById("healing");
         this.platformTrampolineAudio = document.getElementById("trampoline");
         this.platformTrapAudio = document.getElementById("trap");
+        this.platformFakeAudio = document.getElementById("fake");
     }
 
     movePlayer() {
@@ -96,7 +97,10 @@ export default class Player {
     outOfBounds() {
         const aboveTheTop = this.y + (CONSTANTS.PLAYER_HEIGHT / 5) < 0;
         const belowTheBottom = this.y + (CONSTANTS.PLAYER_HEIGHT/5) > this.dimensions.height;
-        return aboveTheTop || belowTheBottom;
+        if (aboveTheTop || belowTheBottom) {
+            this.trapRed(this.ctx);
+            return true;
+        }
     }
 
     touchOn(platforms){
@@ -104,6 +108,9 @@ export default class Player {
             if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 25) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
                     this.touch = ele;
+                    if (ele[2] === "fake") {
+                        this.platformFakeAudio.play();
+                    }
                     if (ele[2] === "trampoline") {
                         this.platformTrampolineAudio.play();
                     }else if (!this.visited.includes(ele[3])){

@@ -17,6 +17,7 @@ export default class Platform {
         this.platformImg = document.getElementById("img-normal");
         this.platformImgTrampoline = document.getElementById("img-trampoline");
         this.platformImgTrap = document.getElementById("img-trap");
+        this.platformImgFake = document.getElementById("img-fake");
         this.platforms = [];
         this.running = running;
     }
@@ -92,8 +93,8 @@ export default class Platform {
             platformType = "trap";
         }else if (rand < 80) {
             platformType = "trampoline";
-        }else {
-            platformType = "normal";
+        }else if (rand < 100){
+            platformType = "fake";
         }
 
         platform = [x, y, platformType, TAG[Math.floor(idx)]];
@@ -115,8 +116,10 @@ export default class Platform {
                 ctx.drawImage(this.platformImg, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
             }else if (ele[2] === "trap") {
                 ctx.drawImage(this.platformImgTrap, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
-            }else {
+            }else if (ele[2] === "trampoline"){
                 ctx.drawImage(this.platformImgTrampoline, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+            }else if (ele[2] === "fake") {
+                ctx.drawImage(this.platformImgFake, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
             }
         });
     }
