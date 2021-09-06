@@ -60,7 +60,7 @@ export default class Platform {
         let x = Math.random() * 800;
         let y = 125;
         let rand = Math.random() * 100;
-        let idx = Math.random(26);
+        let idx = Math.random() * 26;
 
         let platformType = "normal";
 
@@ -74,14 +74,7 @@ export default class Platform {
             platformType = "normal";
         }
 
-        // if (rand < 50){
-        //     platformType = "normal";
-        // }else {
-        //     platformType = "trampoline";
-        // }
-
-
-        platform = [x, y, platformType];
+        platform = [x, y, platformType, TAG[Math.floor(idx)]];
         return platform;
     }
 

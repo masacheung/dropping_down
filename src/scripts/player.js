@@ -18,6 +18,7 @@ export default class Player {
         this.life = 10;
         this.touch = undefined;
         this.platforms;
+        this.visited = [];
         this.platformAudio = document.getElementById("normal");
         this.platformTrampolineAudio = document.getElementById("trampoline");
         this.platformTrapAudio = document.getElementById("trap");
@@ -36,20 +37,14 @@ export default class Player {
                 }
             }
         } else {
-            if (this.touch[2] === "normal"){
+            if (this.touch[2] === "normal" || this.touch[2] === "trap"){
                 this.y -= 2;
                 this.vel = 0;
-                if (this.life < 10){
-                    this.life += 1;
-                }
             }else if (this.touch[2] === "trampoline"){
                 this.y -= 125;
                 this.vel = 0;
-            }else if (this.touch[2] === "trap"){
-                this.life -= 2;
-                this.y -=2;
-                this.vel = 0;
             }
+
             if (this.x > this.touch[0] || this.x < this.touch[0]){
                 this.touch = undefined;
             }
@@ -101,15 +96,23 @@ export default class Player {
             if (Math.floor(this.y + 65) - Math.floor(ele[1]) > 0 && Math.floor(this.y + 65) - Math.floor(ele[1]) < 25) {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
                     this.touch = ele;
-                    if (ele[2] === "normal"){
-                        this.platformAudio.play();
-                    }else if (ele[2] === "trampoline"){
+                    if (ele[2] === "trampoline") {
                         this.platformTrampolineAudio.play();
-                    }else if (ele[2] === "trap"){
-                        this.platformTrapAudio.play();
+                    }else if (!this.visited.includes(ele[3])){
+                        this.visited.push(ele[3]);
+                        if (ele[2] === "normal"){
+                            this.platformAudio.play();
+                            if (this.life < 10){
+                                this.life += 1;
+                            }
+                        }else if (ele[2] === "trap"){
+                            this.platformTrapAudio.play();
+                            this.life -= 2;
+                        }
                     }
                 }else {
                     this.touch = undefined;
+                    this.visited.shift();
                 }
             }
         });
