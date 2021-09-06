@@ -9,7 +9,7 @@ const CONSTANTS = {
 const hpBar = document.getElementById("hp-bar");
 
 export default class Player {
-    constructor(dimensions) {
+    constructor(dimensions, running) {
         this.dimensions = dimensions;
         this.x = this.dimensions.width /2.25;
         this.y = 0;
@@ -18,6 +18,7 @@ export default class Player {
         this.life = 10;
         this.touch = undefined;
         this.platforms;
+        this.running = running;
         this.visited = [];
         this.platformAudio = document.getElementById("normal");
         this.platformTrampolineAudio = document.getElementById("trampoline");
@@ -64,16 +65,20 @@ export default class Player {
         }
     }
 
-    animate(ctx, platforms) {
+    animate(ctx, platforms, running) {
         this.platforms = platforms;
+        this.running = running;
         this.movePlayer();
+        this.updateHpBar();
         this.drawPlayer(ctx);
     }
 
     drawPlayer(ctx) {
         // ctx.fillStyle = "#D3D3D3";
         // ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
-        ctx.drawImage(this.img, this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
+        if (this.running){
+            ctx.drawImage(this.img, this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
+        }
     }
 
     bounds() {
