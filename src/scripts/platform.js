@@ -93,7 +93,7 @@ export default class Platform {
             platformType = "trap";
         }else if (rand < 80) {
             platformType = "trampoline";
-        }else if (rand < 100){
+        }else if (rand < 90){
             platformType = "fake";
         }
 
