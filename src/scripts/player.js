@@ -104,10 +104,12 @@ export default class Player {
                             this.platformAudio.play();
                             if (this.life < 10){
                                 this.life += 1;
+                                this.updateHpBar();
                             }
                         }else if (ele[2] === "trap"){
                             this.platformTrapAudio.play();
-                            this.life -= 2;
+                            this.life -= 4;
+                            this.updateHpBar();
                         }
                     }
                 }else {
@@ -115,6 +117,28 @@ export default class Player {
                     this.visited.shift();
                 }
             }
+        });
+    }
+
+    updateHpBar() {
+        if (this.life <= 0){
+            const boxes = Array.from(hpBar.children);
+            boxes.forEach( (ele) => {
+                ele.className = "hp-empty";
+            });
+        }
+        const currentHp = this.life;
+        const boxes = Array.from(hpBar.children);
+
+        const actives = boxes.slice(0, currentHp);
+        const empties = boxes.slice(currentHp);
+
+        actives.forEach( (ele) => {
+            ele.className = "hp-active";
+        });
+
+        empties.forEach( (ele) => {
+            ele.className = "hp-empty";
         });
     }
 }

@@ -93,7 +93,7 @@ export default class Dropping {
     }
 
     gameOver() {
-        return this.player.outOfBounds();
+        return this.player.outOfBounds() || this.player.life <= 0;
     }
 
     // togglePause() {
