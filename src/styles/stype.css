@@ -74,7 +74,7 @@ h1 {
 }
 
 .game-play {
-    width: 91%;
+    width: 95%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,14 +228,14 @@ canvas {
     border: 2px solid grey;
     color: white;
     display: flex;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    /* margin-right: 10px; */
     margin-top: 10px;
 }
 
 .start {
     display: block;
-    margin-left: auto;
+    margin-left: 10px;
     margin-right: auto;
     width: 70px;
 }
@@ -271,4 +271,40 @@ canvas {
 
 #img-start {
     display: none;
+}
+
+.instruction {
+    display: block;
+    justify-content: center;
+    align-content: center;
+}
+
+#dis-normal, #dis-trampoline, #dis-trap, #dis-fake {
+    width: 80px;
+    height: 12px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    /* margin-right: 5px; */
+}
+
+h3 {
+    /* position: absolute; */
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid grey;
+    border-radius: 5px;
+    /* margin-left: 5px; */
+    margin-right: 10px;
 }
