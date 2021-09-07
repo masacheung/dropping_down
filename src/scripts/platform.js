@@ -20,10 +20,12 @@ export default class Platform {
         this.platformImgFake = document.getElementById("img-fake");
         this.platforms = [];
         this.running = running;
+        this.score;
     }
 
-    animate(ctx, running) {
+    animate(ctx, running, score) {
         this.running = running;
+        this.score = score;
         this.drawBackground(ctx);
         // this.movePlatform();
         // this.createOnePlatform();

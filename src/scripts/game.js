@@ -72,7 +72,7 @@ export default class Dropping {
     }
     
     animate() {
-        this.platform.animate(this.ctx, this.running);
+        this.platform.animate(this.ctx, this.running, this.score);
         this.player.animate(this.ctx, this.platform.platforms, this.running);
         // this.player.touchOn(this.platform.platforms);
         
