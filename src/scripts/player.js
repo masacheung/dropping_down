@@ -184,4 +184,16 @@ export default class Player {
         ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
         ctx.fillStyle = "rgba(0,0,0,0.3)";
     }
+
+    // levelUp(ctx) {
+    //     if (this.score <= 35){
+    //         ctx.fillStyle = "#000000";
+    //         ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
+    //         ctx.fillStyle = "rgba(0,0,0,0.3)";
+    //         ctx.font = "25px bold Gill Sans";
+    //         ctx.fillStyle = "white";
+    //         ctx.textAlign = "center";
+    //         ctx.fillText("LEVEL 1", this.dimensions.width/2, this.dimensions.height - 350);
+    //     }
+    // }
 }
