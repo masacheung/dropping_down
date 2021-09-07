@@ -14,6 +14,8 @@ export default class Dropping {
     constructor (canvas){
         this.ctx = canvas.getContext("2d");
         this.gameoverAUDIO = document.getElementById("fall");
+        this.playButton = document.getElementById("play");
+        this.pauseButton = document.getElementById("stop");
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
         this.restart();
@@ -77,6 +79,7 @@ export default class Dropping {
         // this.player.touchOn(this.platform.platforms);
         
         if (this.gameOver()) {
+            // this.button.style.display = "block";
             // this.ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
             // this.ctx.fillStyle = "rgba(0,0,0,0.5)";
             // this.ctx.fill();

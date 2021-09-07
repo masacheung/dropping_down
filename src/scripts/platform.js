@@ -28,10 +28,10 @@ export default class Platform {
         this.drawBackground(ctx);
         // this.movePlatform();
         // this.createOnePlatform();
+
         this.createPlatform();
         this.movePlatform();
         this.drawPlatform(ctx);
-        
     }
 
     drawBackground(ctx) {
