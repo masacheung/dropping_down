@@ -29,11 +29,10 @@ export default class Platform {
         this.drawBackground(ctx);
         // this.movePlatform();
         // this.createOnePlatform();
-        // if (this.running){
+
         this.createPlatform();
         this.movePlatform();
         this.drawPlatform(ctx);
-        // }
     }
 
     drawBackground(ctx) {
@@ -64,20 +63,21 @@ export default class Platform {
     }
 
     createPlatform() {
-        if (this.running){
-            if (!this.platforms.length) {
-                let temp = this.createOnePlatform();
-                temp[1] += 210;
+        if (!this.platforms.length) {
+            let temp = this.createOnePlatform();
+            temp[1] += 210;
+            this.platforms.push(temp);
+        }
+        while (this.platforms.length < 8){
+            let temp = this.createOnePlatform();
+            let last = this.platforms[this.platforms.length - 1];
+            temp[1] = last[1] + 150;
+            if (temp[0] - CONSTANTS.PLATFORMWIDTH > 0 && temp[0] + CONSTANTS.PLATFORMWIDTH < 800 && ((last[0] - temp[0]) > 150 || (temp[0] - last[0]) > 150)){
                 this.platforms.push(temp);
             }
-            while (this.platforms.length < 8){
-                let temp = this.createOnePlatform();
-                let last = this.platforms[this.platforms.length - 1];
-                temp[1] = last[1] + 150;
-                if (temp[0] - CONSTANTS.PLATFORMWIDTH > 0 && temp[0] + CONSTANTS.PLATFORMWIDTH < 800 && ((last[0] - temp[0]) > 150 || (temp[0] - last[0]) > 150)){
-                    this.platforms.push(temp);
-                }
-            }
+        }
+        if (this.running){
+
         } 
         else {
             ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
