@@ -29,9 +29,11 @@ export default class Platform {
         this.drawBackground(ctx);
         // this.movePlatform();
         // this.createOnePlatform();
+        // if (this.running){
         this.createPlatform();
         this.movePlatform();
         this.drawPlatform(ctx);
+        // }
     }
 
     drawBackground(ctx) {
@@ -76,7 +78,8 @@ export default class Platform {
                     this.platforms.push(temp);
                 }
             }
-        } else {
+        } 
+        else {
             ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
         }
     }
