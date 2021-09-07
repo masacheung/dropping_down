@@ -10,16 +10,24 @@ const GAMESTATUS = {
     GAMEOVE: 3
 }
 
+
 export default class Dropping {
+
     constructor (canvas){
         this.ctx = canvas.getContext("2d");
         this.gameoverAUDIO = document.getElementById("fall");
-        this.playButton = document.getElementById("play");
-        this.pauseButton = document.getElementById("stop");
+        this.playButton = document.body.querySelector("play");
+        this.pauseButton = document.body.querySelector("stop");
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
         this.restart();
     }
+
+    // clickButton(){
+    //     this.pauseButton.addEventListener("click", async () => {
+    //         this.togglePause();
+    //     });
+    // }
 
     registerEvents() {
         this.boundClickHandler = this.click.bind(this);
@@ -77,6 +85,10 @@ export default class Dropping {
         this.platform.animate(this.ctx, this.running);
         this.player.animate(this.ctx, this.platform.platforms, this.running, this.score);
         // this.player.touchOn(this.platform.platforms);
+
+        // this.pauseButton.addEventListener("click", async () => {
+        //     this.togglePause();
+        // });
         
         if (this.gameOver()) {
             // this.button.style.display = "block";

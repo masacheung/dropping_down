@@ -29,6 +29,7 @@ export default class Player {
         this.platformFakeAudio = document.getElementById("fake");
     }
 
+
     movePlayer() {
         if (this.touch === undefined){
             this.y += this.vel;
@@ -137,6 +138,7 @@ export default class Player {
                                 this.platformAudio.play();
                             }
                         }else if (ele[2] === "trap"){
+
                             this.platformTrapAudio.play();
                             this.trapRed(this.ctx);
                             this.life -= 4;
