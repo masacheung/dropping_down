@@ -72,7 +72,7 @@ export default class Dropping {
     }
     
     animate() {
-        this.platform.animate(this.ctx, this.running, this.score);
+        this.platform.animate(this.ctx, this.running);
         this.player.animate(this.ctx, this.platform.platforms, this.running, this.score);
         // this.player.touchOn(this.platform.platforms);
         
@@ -132,6 +132,7 @@ export default class Dropping {
 
         this.score = Math.floor(score / 2);
         SCORE.innerHTML =this.score;
+        this.platform.updateScore(this.score);
     }
 
     // drawGameOver(ctx) {

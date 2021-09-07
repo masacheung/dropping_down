@@ -20,19 +20,18 @@ export default class Platform {
         this.platformImgFake = document.getElementById("img-fake");
         this.platforms = [];
         this.running = running;
-        this.score;
+        this.score = 0;
     }
 
-    animate(ctx, running, score) {
+    animate(ctx, running) {
         this.running = running;
-        this.score = score;
         this.drawBackground(ctx);
         // this.movePlatform();
         // this.createOnePlatform();
-
         this.createPlatform();
         this.movePlatform();
         this.drawPlatform(ctx);
+        
     }
 
     drawBackground(ctx) {
@@ -46,6 +45,7 @@ export default class Platform {
             ctx.drawImage(this.fireImg, 0, 370, this.dimensions.width, 700);
             ctx.drawImage(this.wireImg, -50, -45, 900, 100);
         } else {
+            console.log(this.score);
             // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
             ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
@@ -154,5 +154,10 @@ export default class Platform {
     //     ctx.fillText("Game Over.", this.dimensions.width/2, this.dimensions.height - 350);
     //     ctx.fillText("Your Score " + score, this.dimensions.width/2, this.dimensions.height - 275);
     // }
+
+    updateScore(score){
+        this.score = score;
+        // console.log(this.score);
+    }
 
 }
