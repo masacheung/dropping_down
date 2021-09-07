@@ -21,6 +21,7 @@ export default class Player {
         this.running = running;
         this.visited = [];
         this.ctx;
+        this.score;
         this.platformAudio = document.getElementById("normal");
         this.platformHealingAudio = document.getElementById("healing");
         this.platformTrampolineAudio = document.getElementById("trampoline");
@@ -42,7 +43,17 @@ export default class Player {
             }
         } else {
             if (this.touch[2] === "normal" || this.touch[2] === "trap"){
-                this.y -= 2;
+                let speed;
+                if (this.score <= 35){
+                    speed = 2;
+                } else if (this.score <= 55){
+                    speed = 4;
+                }else if (this.score <= 75){
+                    speed = 6;
+                }else if (this.score <= 100){
+                    speed = 10;
+                }
+                this.y -= speed;
                 this.vel = 0;
             }else if (this.touch[2] === "trampoline"){
                 this.y -= 125;
@@ -68,10 +79,11 @@ export default class Player {
         }
     }
 
-    animate(ctx, platforms, running) {
+    animate(ctx, platforms, running, score) {
         this.platforms = platforms;
         this.running = running;
         this.ctx = ctx;
+        this.score = score;
         this.movePlayer();
         this.updateHpBar();
         this.drawPlayer(ctx);

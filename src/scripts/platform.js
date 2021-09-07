@@ -104,19 +104,21 @@ export default class Platform {
     }
 
     movePlatform() {
+        let speed;
         if (this.score <= 35){
-            for(let i = 0; i < this.platforms.length; i++){
-                this.platforms[i][1] -= 2;
-                if (this.platforms[i][1] <= -32){
-                    this.platforms.splice(i, 1);
-                }
-            }
-        }else {
-            for(let i = 0; i < this.platforms.length; i++){
-                this.platforms[i][1] -= 8;
-                if (this.platforms[i][1] <= -32){
-                    this.platforms.splice(i, 1);
-                }
+            speed = 2;
+        } else if (this.score <= 55){
+            speed = 4;
+        }else if (this.score <= 75){
+            speed = 6;
+        }else if (this.score <= 100){
+            speed = 10;
+        }
+
+        for(let i = 0; i < this.platforms.length; i++){
+            this.platforms[i][1] -= speed;
+            if (this.platforms[i][1] <= -32){
+                this.platforms.splice(i, 1);
             }
         }
     }
