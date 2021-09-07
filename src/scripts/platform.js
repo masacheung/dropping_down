@@ -51,11 +51,12 @@ export default class Platform {
             ctx.fill();
 
             ctx.font = "25px bold Gill Sans";
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "#FC46AA";
             ctx.textAlign = "center";
             ctx.drawImage(this.startImg, 300, 200, this.dimensions.width/4 ,this.dimensions.height/4);
             ctx.fillText("Click Here to Play.", this.dimensions.width/2, this.dimensions.height - 350);
-            ctx.fillText("Moving Left Using [W] OR [←]. Moving Right Using [D] OR [→].", this.dimensions.width/2, this.dimensions.height - 275);
+            ctx.fillText("Moving Left Using [W] OR [←].", this.dimensions.width/2, this.dimensions.height - 275);
+            ctx.fillText("Moving Right Using [D] OR [→].", this.dimensions.width/2, this.dimensions.height - 245);
             // ctx.fillText("Moving Left Using [W] || [←]. Moving Right Using [D] || [→].")
         }
     }
@@ -136,5 +137,19 @@ export default class Platform {
             }
         });
     }
+
+    // drawGameOver(ctx, score){
+    //     console.log(this.score);
+    //     // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+    //     ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
+    //     ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
+    //     ctx.fill();
+
+    //     ctx.font = "25px bold Gill Sans";
+    //     ctx.fillStyle = "#FC46AA";
+    //     ctx.textAlign = "center";
+    //     ctx.fillText("Game Over.", this.dimensions.width/2, this.dimensions.height - 350);
+    //     ctx.fillText("Your Score " + score, this.dimensions.width/2, this.dimensions.height - 275);
+    // }
 
 }

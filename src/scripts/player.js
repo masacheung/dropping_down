@@ -1,5 +1,5 @@
 const CONSTANTS = {
-    GRAVITY:  0.05,
+    GRAVITY:  0.1,
     MOVE_SPEED:  8,
     TERMINAL_VEL:  12,
     PLAYER_WIDTH:  75,
