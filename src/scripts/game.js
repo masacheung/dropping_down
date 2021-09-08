@@ -11,6 +11,8 @@ const GAMESTATUS = {
 }
 
 
+
+
 export default class Dropping {
 
     constructor (canvas){
@@ -20,6 +22,8 @@ export default class Dropping {
         this.pauseButton = document.body.querySelector("stop");
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
+        // this.player = new Player(this.diemsions, this.running, this.ctx);
+        // this.registerKey();
         this.restart();
     }
 
@@ -34,52 +38,51 @@ export default class Dropping {
         this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
     }
 
-    // registerKey(){
-    //     this.boundKeyHandler = this.key.bind(this);
-    //     this.ctx.canvas.addEventListener("keydown", this.boundKeyHandler);
-    // }
+    registerKey(){
+        this.boundKeyHandler = this.key.bind(this);
+        this.ctx.canvas.addEventListener("keydown", this.boundKeyHandler);
+    }
 
-    // key(e){
-    //     switch (e.key){
-    //         case 'ArrowLeft':
-    //             this.player.moveLeft("keydown");
-    //             break;
-    //         case 'ArrowRight':
-    //             this.player.moveRight("keydown");
-    //             break;
-    //         case 'a':
-    //             this.player.moveLeft("keydown");
-    //             break;
-    //         case 'd':
-    //             this.player.moveRight("keydown");
-    //             break;
-    //     }
-    // }
-
+    key(e){
+        switch (e.key){
+            case 'ArrowLeft':
+                this.player.moveLeft("keydown");
+                break;
+            case 'ArrowRight':
+                this.player.moveRight("keydown");
+                break;
+            case 'a':
+                this.player.moveLeft("keydown");
+                break;
+            case 'd':
+                this.player.moveRight("keydown");
+                break;
+        }
+    } 
     
     click(e) {
         if (!this.running) {
           this.play();     
         }else {
             this.togglePause();
-        } 
-    
-        window.addEventListener("keydown", (event) => {
-            switch (event.key){
-                case 'ArrowLeft':
-                    this.player.moveLeft("keydown");
-                    break;
-                case 'ArrowRight':
-                    this.player.moveRight("keydown");
-                    break;
-                case 'a':
-                    this.player.moveLeft("keydown");
-                    break;
-                case 'd':
-                    this.player.moveRight("keydown");
-                    break;
-            }
-        })  
+        }
+
+        // window.addEventListener("keydown", (event) => {
+        //     switch (event.key){
+        //         case 'ArrowLeft':
+        //             this.player.moveLeft("keydown");
+        //             break;
+        //         case 'ArrowRight':
+        //             this.player.moveRight("keydown");
+        //             break;
+        //         case 'a':
+        //             this.player.moveLeft("keydown");
+        //             break;
+        //         case 'd':
+        //             this.player.moveRight("keydown");
+        //             break;
+        //     }
+        // })  
 
         // window.addEventListener("keyup", this.player.stop);
 
@@ -117,12 +120,29 @@ export default class Dropping {
     }
 
     restart() {
+        
         this.running = false;
         this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
         this.player = new Player(this.diemsions, this.running, this.ctx);
         this.platform = new Platform(this.diemsions, this.running);
 
+        window.addEventListener("keydown", (event) => {
+            switch (event.key){
+                case 'ArrowLeft':
+                    this.player.moveLeft("keydown");
+                    break;
+                case 'ArrowRight':
+                    this.player.moveRight("keydown");
+                    break;
+                case 'a':
+                    this.player.moveLeft("keydown");
+                    break;
+                case 'd':
+                    this.player.moveRight("keydown");
+                    break;
+            }
+        }) 
         this.animate();
     }
     
@@ -154,6 +174,22 @@ export default class Dropping {
             this.gameoverAUDIO.play();
             // this.drawGameOver(this.ctx);
             alert("Your score is " + this.score + " not BAD!!!");
+            // window.removeEventListener("keydown", (event) => {
+            //     switch (event.key){
+            //         case 'ArrowLeft':
+            //             this.player.moveLeft("keydown");
+            //             break;
+            //         case 'ArrowRight':
+            //             this.player.moveRight("keydown");
+            //             break;
+            //         case 'a':
+            //             this.player.moveLeft("keydown");
+            //             break;
+            //         case 'd':
+            //             this.player.moveRight("keydown");
+            //             break;
+            //     }
+            // })             
             this.restart();
         }
 
