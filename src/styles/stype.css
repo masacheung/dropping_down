@@ -74,8 +74,8 @@ h1 {
 }
 
 .game-play {
-    width: 95%;
-    display: flex;
+    width: 97%;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
