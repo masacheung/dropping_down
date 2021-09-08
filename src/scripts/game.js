@@ -20,6 +20,8 @@ export default class Dropping {
         this.gameoverAUDIO = document.getElementById("fall");
         this.playButton = document.body.querySelector("play");
         this.pauseButton = document.body.querySelector("stop");
+        this.bgmusic = document.getElementById("bgmusic");
+        this.bgmusic.volume = 0.5;
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
         // this.player = new Player(this.diemsions, this.running, this.ctx);
@@ -99,6 +101,7 @@ export default class Dropping {
         let start = new Date();
         this.min = start.getMinutes();
         this.sec = start.getSeconds();
+        this.bgmusic.play();
         this.animate();
         // this.eventListeners();
         // document.addEventListener("keydown", (event) => {
@@ -120,7 +123,6 @@ export default class Dropping {
     }
 
     restart() {
-        
         this.running = false;
         this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
@@ -171,6 +173,8 @@ export default class Dropping {
             //     $("#dialog").dialog();
             // });
               
+            this.bgmusic.pause();
+            this.bgmusic.currentTime = 0;
             this.gameoverAUDIO.play();
             // this.drawGameOver(this.ctx);
             alert("Your score is " + this.score + " not BAD!!!");
@@ -208,9 +212,11 @@ export default class Dropping {
         if(this.gamestatus === GAMESTATUS.PAUSED){
             this.gamestatus = GAMESTATUS.RUNNING;
             this.running = true;
+            this.bgmusic.play();
         } else {
             this.gamestatus = GAMESTATUS.PAUSED;
             this.running = false;
+            this.bgmusic.pause();
         }
     }
 
