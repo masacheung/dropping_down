@@ -70,15 +70,13 @@ export default class Player {
 
     moveLeft() {
         if (this.x > 0){
-            // this.x -= 3 * CONSTANTS.MOVE_SPEED;
-            this.x -= 5;
+            this.x -= 3 * CONSTANTS.MOVE_SPEED;
         }
     }
 
     moveRight() {
         if (this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
-            // this.x += 3 * CONSTANTS.MOVE_SPEED;
-            this.x += 3;
+            this.x += 3 * CONSTANTS.MOVE_SPEED;
         }
     }
 
