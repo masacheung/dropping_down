@@ -18,6 +18,7 @@ export default class Platform {
         this.platformImgTrampoline = document.getElementById("img-trampoline");
         this.platformImgTrap = document.getElementById("img-trap");
         this.platformImgFake = document.getElementById("img-fake");
+        this.levelUpAudio = document.getElementById("levelup");
         this.platforms = [];
         this.running = running;
         this.score = 0;
@@ -118,6 +119,10 @@ export default class Platform {
             speed = 6;
         }else if (this.score <= 100){
             speed = 10;
+        }
+
+        if(this.score === 55 || this.score === 75 || this.score === 100 ){
+            this.levelUpAudio.play();
         }
 
         for(let i = 0; i < this.platforms.length; i++){

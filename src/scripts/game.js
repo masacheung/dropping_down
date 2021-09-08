@@ -21,7 +21,7 @@ export default class Dropping {
         this.playButton = document.body.querySelector("play");
         this.pauseButton = document.body.querySelector("stop");
         this.bgmusic = document.getElementById("bgmusic");
-        this.bgmusic.volume = 0.5;
+        this.bgmusic.volume = 0.4;
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
         // this.player = new Player(this.diemsions, this.running, this.ctx);
