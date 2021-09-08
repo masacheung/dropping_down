@@ -20,6 +20,7 @@ export default class Dropping {
         this.pauseButton = document.body.querySelector("stop");
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
+        // this.registerKey();
         this.restart();
     }
 
@@ -34,14 +35,52 @@ export default class Dropping {
         this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
     }
 
+    // registerKey(){
+    //     this.boundKeyHandler = this.key.bind(this);
+    //     this.ctx.canvas.addEventListener("keydown", this.boundKeyHandler);
+    // }
+
+    // key(e){
+    //     switch (e.key){
+    //         case 'ArrowLeft':
+    //             this.player.moveLeft("keydown");
+    //             break;
+    //         case 'ArrowRight':
+    //             this.player.moveRight("keydown");
+    //             break;
+    //         case 'a':
+    //             this.player.moveLeft("keydown");
+    //             break;
+    //         case 'd':
+    //             this.player.moveRight("keydown");
+    //             break;
+    //     }
+    // }
+
     
     click(e) {
         if (!this.running) {
           this.play();
+        //   window.addEventListener("keydown", (event) => {
+        //     switch (event.key){
+        //         case 'ArrowLeft':
+        //             this.player.moveLeft("keydown");
+        //             break;
+        //         case 'ArrowRight':
+        //             this.player.moveRight("keydown");
+        //             break;
+        //         case 'a':
+        //             this.player.moveLeft("keydown");
+        //             break;
+        //         case 'd':
+        //             this.player.moveRight("keydown");
+        //             break;
+        //     }
+        // })       
         }else {
             this.togglePause();
         }
-        
+
         window.addEventListener("keydown", (event) => {
             switch (event.key){
                 case 'ArrowLeft':
@@ -57,7 +96,8 @@ export default class Dropping {
                     this.player.moveRight("keydown");
                     break;
             }
-        })
+        })      
+    
 
         // window.addEventListener("keyup", this.player.stop);
 

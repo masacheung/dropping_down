@@ -32,29 +32,29 @@ export default class Player {
         this.platformFakeAudio = document.getElementById("fake");
     }
 
-    keyDown(e) {
-        this.keys[e.key] = true;
-        this.moving = true;
-        switch (e.key){
-            case 'ArrowLeft':
-                this.player.moveLeft();
-                break;
-            case 'ArrowRight':
-                this.player.moveRight();
-                break;
-            case 'a':
-                this.player.moveLeft();
-                break;
-            case 'd':
-                this.player.moveRight();
-                break;
-        }
-    }
+    // keyDown(e) {
+    //     this.keys[e.key] = true;
+    //     this.moving = true;
+    //     switch (e.key){
+    //         case 'ArrowLeft':
+    //             this.player.moveLeft();
+    //             break;
+    //         case 'ArrowRight':
+    //             this.player.moveRight();
+    //             break;
+    //         case 'a':
+    //             this.player.moveLeft();
+    //             break;
+    //         case 'd':
+    //             this.player.moveRight();
+    //             break;
+    //     }
+    // }
 
-    keyUp(e) {
-        delete this.keys[e.key];
-        this.moving = false;
-    }
+    // keyUp(e) {
+    //     delete this.keys[e.key];
+    //     this.moving = false;
+    // }
 
 
 
@@ -106,12 +106,16 @@ export default class Player {
         // }else {
         //     this.x = this.x;
         // }
-        if (string === "keydown"){
-            this.moving = true;
-        }
-        if (this.x > 0 && this.moving === true){
+        // if (string === "keydown"){
+        //     this.moving = true;
+        // }
+        console.log("before")
+        console.log(this.x)
+        if (this.x > 0){
             this.x -= 3 * CONSTANTS.MOVE_SPEED;
         }
+        console.log("after")
+        console.log(this.x)
         // if (string === "keydown") {
         //     this.moving = true;
         //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
