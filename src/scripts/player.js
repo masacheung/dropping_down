@@ -22,8 +22,9 @@ export default class Player {
         this.visited = [];
         this.ctx;
         this.score;
-        // this.keyDown = this.keyDown.bind(this);
-        // this.keyUp = this.keyUp.bind(this);
+        this.keys = [];
+        this.keyDown = this.keyDown.bind(this);
+        this.keyUp = this.keyUp.bind(this);
         this.moving = false;
         this.platformAudio = document.getElementById("normal");
         this.platformHealingAudio = document.getElementById("healing");
@@ -32,31 +33,24 @@ export default class Player {
         this.platformFakeAudio = document.getElementById("fake");
     }
 
-    // keyDown(e) {
-    //     this.keys[e.key] = true;
-    //     this.moving = true;
-    //     switch (e.key){
-    //         case 'ArrowLeft':
-    //             this.player.moveLeft();
-    //             break;
-    //         case 'ArrowRight':
-    //             this.player.moveRight();
-    //             break;
-    //         case 'a':
-    //             this.player.moveLeft();
-    //             break;
-    //         case 'd':
-    //             this.player.moveRight();
-    //             break;
-    //     }
-    // }
+    keyDown(e) {
+        this.keys[e.keyCode] = true;
+        this.moving = true;
+        this.move();
+    }
 
-    // keyUp(e) {
-    //     delete this.keys[e.key];
-    //     this.moving = false;
-    // }
+    keyUp(e) {
+        delete this.keys[e.keyCode];
+        this.moving = false;
+    }
 
-
+    move() {
+        if(this.keys[65]){
+            this.x -= 10;
+        }else if (this.keys[68]){
+            this.x += 10;
+        }
+    }
 
     movePlayer() {
         if (this.touch === undefined){

@@ -20,7 +20,6 @@ export default class Dropping {
         this.pauseButton = document.body.querySelector("stop");
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
-        // this.registerKey();
         this.restart();
     }
 
@@ -60,27 +59,11 @@ export default class Dropping {
     
     click(e) {
         if (!this.running) {
-          this.play();
-        //   window.addEventListener("keydown", (event) => {
-        //     switch (event.key){
-        //         case 'ArrowLeft':
-        //             this.player.moveLeft("keydown");
-        //             break;
-        //         case 'ArrowRight':
-        //             this.player.moveRight("keydown");
-        //             break;
-        //         case 'a':
-        //             this.player.moveLeft("keydown");
-        //             break;
-        //         case 'd':
-        //             this.player.moveRight("keydown");
-        //             break;
-        //     }
-        // })       
+          this.play();     
         }else {
             this.togglePause();
-        }
-
+        } 
+    
         window.addEventListener("keydown", (event) => {
             switch (event.key){
                 case 'ArrowLeft':
@@ -96,17 +79,16 @@ export default class Dropping {
                     this.player.moveRight("keydown");
                     break;
             }
-        })      
-    
+        })  
 
         // window.addEventListener("keyup", this.player.stop);
 
     }
 
-    // eventListeners() {
-    //     window.addEventListener("keydown", this.player.keyDown.bind(this));
-    //     window.addEventListener("keyup", this.player.keyUp.bind(this));
-    // }
+    eventListeners() {
+        document.addEventListener("keydown", this.player.keyDown.bind(this));
+        document.addEventListener("keyup", this.player.keyUp.bind(this));
+    }
 
     play() {
         this.running = true;
@@ -115,6 +97,23 @@ export default class Dropping {
         this.min = start.getMinutes();
         this.sec = start.getSeconds();
         this.animate();
+        // this.eventListeners();
+        // document.addEventListener("keydown", (event) => {
+        //     switch (event.key){
+        //         case 'ArrowLeft':
+        //             this.player.moveLeft("keydown");
+        //             break;
+        //         case 'ArrowRight':
+        //             this.player.moveRight("keydown");
+        //             break;
+        //         case 'a':
+        //             this.player.moveLeft("keydown");
+        //             break;
+        //         case 'd':
+        //             this.player.moveRight("keydown");
+        //             break;
+        //     }
+        // })     
     }
 
     restart() {
