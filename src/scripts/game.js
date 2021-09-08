@@ -38,6 +38,8 @@ export default class Dropping {
     click(e) {
         if (!this.running) {
           this.play();
+        }else {
+            this.togglePause();
         }
         
         window.addEventListener("keydown", (event) => {
@@ -54,7 +56,7 @@ export default class Dropping {
                 case 'd':
                     this.player.moveRight();
                     break;
-                // case " ":
+                // case "mousedown":
                 //     this.togglePause();
                 //     break;
             }
@@ -89,6 +91,8 @@ export default class Dropping {
         // this.pauseButton.addEventListener("click", async () => {
         //     this.togglePause();
         // });
+
+        if(this.gamestatus === GAMESTATUS.PAUSED) return;
         
         if (this.gameOver()) {
             // this.button.style.display = "block";
@@ -124,8 +128,10 @@ export default class Dropping {
     togglePause() {
         if(this.gamestatus === GAMESTATUS.PAUSED){
             this.gamestatus = GAMESTATUS.RUNNING;
+            this.running = true;
         } else {
             this.gamestatus = GAMESTATUS.PAUSED;
+            this.running = false;
         }
     }
 
