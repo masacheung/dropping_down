@@ -45,24 +45,28 @@ export default class Dropping {
         window.addEventListener("keydown", (event) => {
             switch (event.key){
                 case 'ArrowLeft':
-                    this.player.moveLeft();
+                    this.player.moveLeft("keydown");
                     break;
                 case 'ArrowRight':
-                    this.player.moveRight();
+                    this.player.moveRight("keydown");
                     break;
                 case 'a':
-                    this.player.moveLeft();
+                    this.player.moveLeft("keydown");
                     break;
                 case 'd':
-                    this.player.moveRight();
+                    this.player.moveRight("keydown");
                     break;
-                // case "mousedown":
-                //     this.togglePause();
-                //     break;
             }
         })
 
+        // window.addEventListener("keyup", this.player.stop);
+
     }
+
+    // eventListeners() {
+    //     window.addEventListener("keydown", this.player.keyDown.bind(this));
+    //     window.addEventListener("keyup", this.player.keyUp.bind(this));
+    // }
 
     play() {
         this.running = true;
@@ -77,7 +81,7 @@ export default class Dropping {
         this.running = false;
         this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
-        this.player = new Player(this.diemsions, this.running);
+        this.player = new Player(this.diemsions, this.running, this.ctx);
         this.platform = new Platform(this.diemsions, this.running);
 
         this.animate();

@@ -9,7 +9,7 @@ const CONSTANTS = {
 const hpBar = document.getElementById("hp-bar");
 
 export default class Player {
-    constructor(dimensions, running) {
+    constructor(dimensions, running, ctx) {
         this.dimensions = dimensions;
         this.x = this.dimensions.width /2.25;
         this.y = 0;
@@ -22,12 +22,40 @@ export default class Player {
         this.visited = [];
         this.ctx;
         this.score;
+        // this.keyDown = this.keyDown.bind(this);
+        // this.keyUp = this.keyUp.bind(this);
+        this.moving = false;
         this.platformAudio = document.getElementById("normal");
         this.platformHealingAudio = document.getElementById("healing");
         this.platformTrampolineAudio = document.getElementById("trampoline");
         this.platformTrapAudio = document.getElementById("trap");
         this.platformFakeAudio = document.getElementById("fake");
     }
+
+    keyDown(e) {
+        this.keys[e.key] = true;
+        this.moving = true;
+        switch (e.key){
+            case 'ArrowLeft':
+                this.player.moveLeft();
+                break;
+            case 'ArrowRight':
+                this.player.moveRight();
+                break;
+            case 'a':
+                this.player.moveLeft();
+                break;
+            case 'd':
+                this.player.moveRight();
+                break;
+        }
+    }
+
+    keyUp(e) {
+        delete this.keys[e.key];
+        this.moving = false;
+    }
+
 
 
     movePlayer() {
@@ -68,16 +96,53 @@ export default class Player {
         this.touchOn(this.platforms);
     }
 
-    moveLeft() {
-        if (this.x > 0){
+    // stop(e) {
+    //     this.moving = false;
+    // }
+
+    moveLeft(string) {
+        // if (string === "keydown" && this.x > 0){
+        //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
+        // }else {
+        //     this.x = this.x;
+        // }
+        if (string === "keydown"){
+            this.moving = true;
+        }
+        if (this.x > 0 && this.moving === true){
             this.x -= 3 * CONSTANTS.MOVE_SPEED;
         }
+        // if (string === "keydown") {
+        //     this.moving = true;
+        //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
+        // } else {
+        //     this.moving = false;
+        // }
+
+        // while (this.moving){
+        //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
+        // }
     }
 
-    moveRight() {
+    moveRight(string) {
+        // if (string === "keydown" && this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
+        //     this.x += 3 * CONSTANTS.MOVE_SPEED;
+        // }else {
+        //     this.x = this.x;
+        // }
         if (this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
             this.x += 3 * CONSTANTS.MOVE_SPEED;
         }
+
+        // if (string === "keydown") {
+        //     this.moving = true;
+        // } else {
+        //     this.moving = false;
+        // }
+
+        // while (this.moving){
+        //     this.x += 3 * CONSTANTS.MOVE_SPEED;
+        // }
     }
 
     animate(ctx, platforms, running, score) {
