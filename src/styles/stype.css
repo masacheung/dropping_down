@@ -1,6 +1,10 @@
 body {
     /* background-color: #696969; */
-    background-image: url('../../assests/icon/space.jpg');
+    background: url('../../assests/icon/space.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1 {
