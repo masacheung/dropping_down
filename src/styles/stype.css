@@ -238,7 +238,7 @@ canvas {
     margin-top: 10px;
 }
 
-.start {
+.start, .leader {
     display: block;
     margin-left: 10px;
     margin-right: auto;
