@@ -56,6 +56,11 @@ export default class Platform {
             ctx.fillStyle = "#FC46AA";
             ctx.textAlign = "center";
             ctx.drawImage(this.startImg, 300, 200, this.dimensions.width/4 ,this.dimensions.height/4);
+
+            ctx.fillText("Fill your Score!!! →", 690, this.dimensions.height - 480);
+
+            ctx.fillText("Leaderboard!!! →", 700, this.dimensions.height - 400);
+
             ctx.fillText("Click to Start. Click To Pause.", this.dimensions.width/2, this.dimensions.height - 350);
             // ctx.fillText("'Everytime Pause the Game, the charater will move faster!!!'", this.dimensions.width/2, this.dimensions.height - 315);
             ctx.fillText("Moving Left Using [A] OR [←].", this.dimensions.width/2, this.dimensions.height - 270);
