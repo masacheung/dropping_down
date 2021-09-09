@@ -238,7 +238,7 @@ canvas {
     margin-top: 10px;
 }
 
-.start, .leader, .score {
+.start, .leader, .scorepng{
     display: block;
     margin-left: 10px;
     margin-right: auto;
