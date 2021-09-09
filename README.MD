@@ -46,7 +46,9 @@ https://wireframe.cc/ypTdwI
 
 <h2>Bonus Features</h2>
 <ul>
-    <li>Add multiplayer feature.</li>
+    <li>Add audio effect</li>
+    <li>Toggle Pause</li>
+    <li>Starting Screen</li>
 </ul>
 
 <h2>Credits</h2>
