@@ -121,7 +121,7 @@ export default class Platform {
             speed = 10;
         }
 
-        if(this.score === 55 || this.score === 75 || this.score === 100 ){
+        if(this.score === 36 || this.score === 56 || this.score === 76 || this.score === 101){
             this.levelUpAudio.play();
         }
 
