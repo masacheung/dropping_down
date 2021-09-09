@@ -58,7 +58,7 @@ export default class Platform {
             ctx.drawImage(this.startImg, 300, 200, this.dimensions.width/4 ,this.dimensions.height/4);
             ctx.fillText("Click to Start. Click To Pause.", this.dimensions.width/2, this.dimensions.height - 350);
             // ctx.fillText("'Everytime Pause the Game, the charater will move faster!!!'", this.dimensions.width/2, this.dimensions.height - 315);
-            ctx.fillText("Moving Left Using [W] OR [←].", this.dimensions.width/2, this.dimensions.height - 270);
+            ctx.fillText("Moving Left Using [A] OR [←].", this.dimensions.width/2, this.dimensions.height - 270);
             ctx.fillText("Moving Right Using [D] OR [→].", this.dimensions.width/2, this.dimensions.height - 240);
             // ctx.fillText("Moving Left Using [W] || [←]. Moving Right Using [D] || [→].")
         }
