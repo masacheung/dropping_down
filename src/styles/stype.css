@@ -200,7 +200,7 @@ canvas {
     cursor: pointer;
 }
 
-.name {
+.name, footer {
     display: flex;
     justify-content: center;
     align-content: center;
