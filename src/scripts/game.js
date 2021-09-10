@@ -100,6 +100,7 @@ export default class Dropping {
         this.running = true;
         this.gamestatus = GAMESTATUS.RUNNING;
         let start = new Date();
+        this.hour = start.getHours();
         this.min = start.getMinutes();
         this.sec = start.getSeconds();
         this.bgmusic.play();
@@ -223,9 +224,14 @@ export default class Dropping {
 
     countScore() {
         let time = new Date();
+        let timeHour = time.getHours();
         let tempMin = time.getMinutes();
         let tempSecound = time.getSeconds();
         let score;
+
+        if (timeHour < this.hour){
+            timeMin = timeMin + 60;
+        }
 
         if (tempMin > this.min){
             let ex = tempMin - this.min;
@@ -236,6 +242,7 @@ export default class Dropping {
         } else {
             score = tempSecound - this.sec;
         }
+        
 
         this.score = Math.floor(score / 2);
         SCORE.innerHTML =this.score;
