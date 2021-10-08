@@ -45,7 +45,7 @@ export default class Platform {
             ctx.drawImage(this.fireImg, 0, 370, this.dimensions.width, 700);
             ctx.drawImage(this.wireImg, -50, -45, 900, 100);
         } else {
-            console.log(this.score);
+            // console.log(this.score);
             // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
             ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
