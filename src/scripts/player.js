@@ -103,13 +103,13 @@ export default class Player {
         // if (string === "keydown"){
         //     this.moving = true;
         // }
-        console.log("before")
-        console.log(this.x)
+        // console.log("before")
+        // console.log(this.x)
         if (this.x > 0){
             this.x -= 3 * CONSTANTS.MOVE_SPEED;
         }
-        console.log("after")
-        console.log(this.x)
+        // console.log("after")
+        // console.log(this.x)
         // if (string === "keydown") {
         //     this.moving = true;
         //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
