@@ -20,7 +20,7 @@ export default class Player {
         this.platforms = platforms;
         this.running = running;
         this.visited = [];
-        this.ctx;
+        this.ctx = ctx;
         this.score;
         this.keys = [];
         this.keyDown = this.keyDown.bind(this);

@@ -22,7 +22,6 @@ export default class Platform {
         this.platforms = [];
         this.running = running;
         this.score = 0;
-        this.createPlatform();
     }
 
     animate(ctx, running) {
@@ -72,12 +71,6 @@ export default class Platform {
                 this.platforms.push(temp);
             }
         }
-        // if (this.running){
-
-        // } 
-        // else {
-        //     ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
-        // }
     }
 
     createOnePlatform() {
@@ -143,23 +136,8 @@ export default class Platform {
         }
     }
 
-    // drawGameOver(ctx, score){
-    //     console.log(this.score);
-    //     // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
-    //     ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
-    //     ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
-    //     ctx.fill();
-
-    //     ctx.font = "25px bold Gill Sans";
-    //     ctx.fillStyle = "#FC46AA";
-    //     ctx.textAlign = "center";
-    //     ctx.fillText("Game Over.", this.dimensions.width/2, this.dimensions.height - 350);
-    //     ctx.fillText("Your Score " + score, this.dimensions.width/2, this.dimensions.height - 275);
-    // }
-
     updateScore(score){
         this.score = score;
-        // console.log(this.score);
     }
 
 }
