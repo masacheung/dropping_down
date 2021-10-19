@@ -27,12 +27,9 @@ export default class Platform {
     animate(ctx, running) {
         this.running = running;
         this.drawBackground(ctx);
-        // this.movePlatform();
-        // this.createOnePlatform();
-
         this.createPlatform();
-        this.movePlatform();
         this.drawPlatform(ctx);
+        this.movePlatform();
     }
 
     drawBackground(ctx) {
@@ -70,7 +67,7 @@ export default class Platform {
     }
 
     createPlatform() {
-        if (!this.platforms.length) {
+        if (this.platforms.length === 0) {
             let temp = this.createOnePlatform();
             temp[1] += 210;
             this.platforms.push(temp);
