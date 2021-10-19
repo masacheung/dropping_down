@@ -9,7 +9,7 @@ const CONSTANTS = {
 const hpBar = document.getElementById("hp-bar");
 
 export default class Player {
-    constructor(dimensions, running, ctx) {
+    constructor(dimensions, running, ctx, platforms) {
         this.dimensions = dimensions;
         this.x = this.dimensions.width /2.25;
         this.y = 0;
@@ -17,7 +17,7 @@ export default class Player {
         this.img = document.getElementById("img-char");
         this.life = 10;
         this.touch = undefined;
-        this.platforms;
+        this.platforms = platforms;
         this.running = running;
         this.visited = [];
         this.ctx;
@@ -90,57 +90,16 @@ export default class Player {
         this.touchOn(this.platforms);
     }
 
-    // stop(e) {
-    //     this.moving = false;
-    // }
-
     moveLeft(string) {
-        // if (string === "keydown" && this.x > 0){
-        //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
-        // }else {
-        //     this.x = this.x;
-        // }
-        // if (string === "keydown"){
-        //     this.moving = true;
-        // }
-        // console.log("before")
-        // console.log(this.x)
         if (this.x > 0){
             this.x -= 3 * CONSTANTS.MOVE_SPEED;
         }
-        // console.log("after")
-        // console.log(this.x)
-        // if (string === "keydown") {
-        //     this.moving = true;
-        //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
-        // } else {
-        //     this.moving = false;
-        // }
-
-        // while (this.moving){
-        //     this.x -= 3 * CONSTANTS.MOVE_SPEED;
-        // }
     }
 
     moveRight(string) {
-        // if (string === "keydown" && this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
-        //     this.x += 3 * CONSTANTS.MOVE_SPEED;
-        // }else {
-        //     this.x = this.x;
-        // }
         if (this.x + CONSTANTS.PLAYER_WIDTH < this.dimensions.width){
             this.x += 3 * CONSTANTS.MOVE_SPEED;
         }
-
-        // if (string === "keydown") {
-        //     this.moving = true;
-        // } else {
-        //     this.moving = false;
-        // }
-
-        // while (this.moving){
-        //     this.x += 3 * CONSTANTS.MOVE_SPEED;
-        // }
     }
 
     animate(ctx, platforms, running, score) {
@@ -154,8 +113,6 @@ export default class Player {
     }
 
     drawPlayer(ctx) {
-        // ctx.fillStyle = "#D3D3D3";
-        // ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
         if (this.running){
             ctx.drawImage(this.img, this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
         }
@@ -249,16 +206,4 @@ export default class Player {
         ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
         ctx.fillStyle = "rgba(0,0,0,0.3)";
     }
-
-    // levelUp(ctx) {
-    //     if (this.score <= 35){
-    //         ctx.fillStyle = "#000000";
-    //         ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
-    //         ctx.fillStyle = "rgba(0,0,0,0.3)";
-    //         ctx.font = "25px bold Gill Sans";
-    //         ctx.fillStyle = "white";
-    //         ctx.textAlign = "center";
-    //         ctx.fillText("LEVEL 1", this.dimensions.width/2, this.dimensions.height - 350);
-    //     }
-    // }
 }

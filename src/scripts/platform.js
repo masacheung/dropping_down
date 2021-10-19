@@ -22,6 +22,7 @@ export default class Platform {
         this.platforms = [];
         this.running = running;
         this.score = 0;
+        this.createPlatform();
     }
 
     animate(ctx, running) {
@@ -33,18 +34,11 @@ export default class Platform {
     }
 
     drawBackground(ctx) {
-        // ctx.fillStyle = "#800000";
-        // ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
-        // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
-        // ctx.fillStyle = "rgba(0,0,0,0.3)";
-        // ctx.fillRect(0,0,this.dimensions.width,this.dimensions.height);
         if (this.running){
             ctx.drawImage(this.img, 0 , 0, this.dimensions.width,this.dimensions.height);
             ctx.drawImage(this.fireImg, 0, 370, this.dimensions.width, 700);
             ctx.drawImage(this.wireImg, -50, -45, 900, 100);
         } else {
-            // console.log(this.score);
-            // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
             ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
             ctx.fill();
@@ -59,10 +53,8 @@ export default class Platform {
             ctx.fillText("Leaderboard!!! →", 700, this.dimensions.height - 400);
 
             ctx.fillText("Click to Start. Click To Pause.", this.dimensions.width/2, this.dimensions.height - 350);
-            // ctx.fillText("'Everytime Pause the Game, the charater will move faster!!!'", this.dimensions.width/2, this.dimensions.height - 315);
             ctx.fillText("Moving Left Using [A] OR [←].", this.dimensions.width/2, this.dimensions.height - 270);
             ctx.fillText("Moving Right Using [D] OR [→].", this.dimensions.width/2, this.dimensions.height - 240);
-            // ctx.fillText("Moving Left Using [W] || [←]. Moving Right Using [D] || [→].")
         }
     }
 

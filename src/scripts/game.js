@@ -25,16 +25,9 @@ export default class Dropping {
         this.bgmusic.loop = true;
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
-        // this.player = new Player(this.diemsions, this.running, this.ctx);
-        // this.registerKey();
         this.restart();
     }
 
-    // clickButton(){
-    //     this.pauseButton.addEventListener("click", async () => {
-    //         this.togglePause();
-    //     });
-    // }
 
     registerEvents() {
         this.boundClickHandler = this.click.bind(this);
@@ -69,26 +62,6 @@ export default class Dropping {
         }else {
             this.togglePause();
         }
-
-        // window.addEventListener("keydown", (event) => {
-        //     switch (event.key){
-        //         case 'ArrowLeft':
-        //             this.player.moveLeft("keydown");
-        //             break;
-        //         case 'ArrowRight':
-        //             this.player.moveRight("keydown");
-        //             break;
-        //         case 'a':
-        //             this.player.moveLeft("keydown");
-        //             break;
-        //         case 'd':
-        //             this.player.moveRight("keydown");
-        //             break;
-        //     }
-        // })  
-
-        // window.addEventListener("keyup", this.player.stop);
-
     }
 
     eventListeners() {
@@ -104,32 +77,15 @@ export default class Dropping {
         this.min = start.getMinutes();
         this.sec = start.getSeconds();
         this.bgmusic.play();
-        this.animate();
-        // this.eventListeners();
-        // document.addEventListener("keydown", (event) => {
-        //     switch (event.key){
-        //         case 'ArrowLeft':
-        //             this.player.moveLeft("keydown");
-        //             break;
-        //         case 'ArrowRight':
-        //             this.player.moveRight("keydown");
-        //             break;
-        //         case 'a':
-        //             this.player.moveLeft("keydown");
-        //             break;
-        //         case 'd':
-        //             this.player.moveRight("keydown");
-        //             break;
-        //     }
-        // })     
+        this.animate();   
     }
 
     restart() {
         this.running = false;
         this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
-        this.player = new Player(this.diemsions, this.running, this.ctx);
         this.platform = new Platform(this.diemsions, this.running);
+        this.player = new Player(this.diemsions, this.running, this.ctx, this.platform.platforms);
 
         window.addEventListener("keydown", (event) => {
             switch (event.key){
@@ -153,49 +109,16 @@ export default class Dropping {
     animate() {
         this.platform.animate(this.ctx, this.running);
         this.player.animate(this.ctx, this.platform.platforms, this.running, this.score);
-        // this.player.touchOn(this.platform.platforms);
-
-        // this.pauseButton.addEventListener("click", async () => {
-        //     this.togglePause();
-        // });
 
         if(this.gamestatus === GAMESTATUS.PAUSED) return;
         
         if (this.gameOver()) {
-            // this.button.style.display = "block";
-            // this.ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
-            // this.ctx.fillStyle = "rgba(0,0,0,0.5)";
-            // this.ctx.fill();
-
-            // this.ctx.font = "30px Arial";
-            // this.ctx.fillStyle = "white";
-            // this.ctx.textAlign = "center";
-            // this.ctx.fillText("GAME OVER!", this.dimensions.width/2, this.dimensions.height/2);
-            // $(function() {
-            //     $("#dialog").dialog();
-            // });
               
             this.bgmusic.pause();
             this.bgmusic.currentTime = 0;
             this.gameoverAUDIO.play();
-            // this.drawGameOver(this.ctx);
             alert("Your score is " + this.score + " not BAD!!!");
-            // window.removeEventListener("keydown", (event) => {
-            //     switch (event.key){
-            //         case 'ArrowLeft':
-            //             this.player.moveLeft("keydown");
-            //             break;
-            //         case 'ArrowRight':
-            //             this.player.moveRight("keydown");
-            //             break;
-            //         case 'a':
-            //             this.player.moveLeft("keydown");
-            //             break;
-            //         case 'd':
-            //             this.player.moveRight("keydown");
-            //             break;
-            //     }
-            // })             
+
             this.restart();
         }
 
@@ -248,17 +171,5 @@ export default class Dropping {
         SCORE.innerHTML =this.score;
         this.platform.updateScore(this.score);
     }
-
-    // drawGameOver(ctx) {
-    //     ctx.rect(0, 0, this.dimensions.width, this.dimensions.height);
-    //     ctx.fillStyle = "rgba(0,0,0,0.5)";
-    //     ctx.fill();
-
-    //     ctx.font = "30px Arial";
-    //     ctx.fillStyle = "white";
-    //     ctx.textAlign = "center";
-    //     ctx.fillText("Game Over", this.dimensions.width/2, this.dimensions.height/2);
-    //     this.ctx.fillText(this.score, this.diemsions.width/2, this.diemsions.height + 50);
-    // }
 
 }
