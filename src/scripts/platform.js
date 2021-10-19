@@ -83,6 +83,12 @@ export default class Platform {
                 this.platforms.push(temp);
             }
         }
+        // if (this.running){
+
+        // } 
+        // else {
+        //     ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+        // }
     }
 
     createOnePlatform() {
