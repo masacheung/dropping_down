@@ -136,17 +136,19 @@ export default class Platform {
     }
 
     drawPlatform(ctx) {
-        this.platforms.forEach((ele) => {
-            if (ele[2] === "normal"){
-                ctx.drawImage(this.platformImg, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
-            }else if (ele[2] === "trap") {
-                ctx.drawImage(this.platformImgTrap, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
-            }else if (ele[2] === "trampoline"){
-                ctx.drawImage(this.platformImgTrampoline, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
-            }else if (ele[2] === "fake") {
-                ctx.drawImage(this.platformImgFake, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
-            }
-        });
+        if(this.running){
+            this.platforms.forEach((ele) => {
+                if (ele[2] === "normal"){
+                    ctx.drawImage(this.platformImg, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+                }else if (ele[2] === "trap") {
+                    ctx.drawImage(this.platformImgTrap, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+                }else if (ele[2] === "trampoline"){
+                    ctx.drawImage(this.platformImgTrampoline, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+                }else if (ele[2] === "fake") {
+                    ctx.drawImage(this.platformImgFake, ele[0], ele[1], CONSTANTS.PLATFORMWIDTH, CONSTANTS.PLATFORMHEIGHT);
+                }
+            });
+        }
     }
 
     // drawGameOver(ctx, score){
