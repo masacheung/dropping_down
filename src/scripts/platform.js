@@ -78,9 +78,9 @@ export default class Platform {
                 this.platforms.push(temp2);
             }
         }
-        if (!this.running){
-            ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
-        } 
+        // if (!this.running){
+        //     Break
+        // } 
     }
 
     createOnePlatform() {

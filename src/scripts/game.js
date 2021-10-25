@@ -19,6 +19,7 @@ export default class Dropping {
         this.pauseButton = document.body.querySelector("stop");
         this.bgmusic = document.getElementById("bgmusic");
         this.bgmusic.volume = 0.4;
+        this.att = 0;
         this.bgmusic.loop = true;
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
@@ -67,6 +68,7 @@ export default class Dropping {
     }
 
     play() {
+        this.att += 1;
         this.running = true;
         this.gamestatus = GAMESTATUS.RUNNING;
         let start = new Date();
@@ -74,7 +76,7 @@ export default class Dropping {
         this.min = start.getMinutes();
         this.sec = start.getSeconds();
         this.bgmusic.play();
-        this.animate();   
+        this.animate();
     }
 
     restart() {
@@ -106,11 +108,16 @@ export default class Dropping {
     animate() {
         this.platform.animate(this.ctx, this.running);
         this.player.animate(this.ctx, this.platform.platforms, this.running, this.score);
+        if(this.att === 1){
+            this.att += 1;
+            this.restart();
+            this.play();
+        }
 
         if(this.gamestatus === GAMESTATUS.PAUSED) return;
         
         if (this.gameOver()) {
-              
+            this.att += 1;
             this.bgmusic.pause();
             this.bgmusic.currentTime = 0;
             this.gameoverAUDIO.play();
