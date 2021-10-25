@@ -23,13 +23,13 @@ export default class Platform {
         this.running = running;
         this.score = 0;
     }
-
     animate(ctx, running) {
         this.running = running;
         this.drawBackground(ctx);
         this.createPlatform();
         this.drawPlatform(ctx);
         this.movePlatform();
+
     }
 
     drawBackground(ctx) {
@@ -63,12 +63,18 @@ export default class Platform {
             temp[1] += 210;
             this.platforms.push(temp);
         }
+            
         while (this.platforms.length < 8){
-            let temp = this.createOnePlatform();
-            let last = this.platforms[this.platforms.length - 1];
-            temp[1] = last[1] + 150;
-            if (temp[0] - CONSTANTS.PLATFORMWIDTH > 0 && temp[0] + CONSTANTS.PLATFORMWIDTH < 800 && ((last[0] - temp[0]) > 150 || (temp[0] - last[0]) > 150)){
-                this.platforms.push(temp);
+            let temp2 = this.createOnePlatform();
+            let last;
+            if(this.platforms.length === 1){
+                last = this.platforms[0]
+            }else {
+                last = this.platforms[this.platforms.length - 1];
+            }
+            temp2[1] = last[1] + 150;
+            if (temp2[0] - CONSTANTS.PLATFORMWIDTH > 0 && temp2[0] + CONSTANTS.PLATFORMWIDTH < 800 && ((last[0] - temp2[0]) > 150 || (temp2[0] - last[0]) > 150)){
+                this.platforms.push(temp2);
             }
         }
         if (this.running){
@@ -117,7 +123,6 @@ export default class Platform {
         if(this.score === 36 || this.score === 56 || this.score === 76 || this.score === 101){
             this.levelUpAudio.play();
         }
-
         for(let i = 0; i < this.platforms.length; i++){
             this.platforms[i][1] -= speed;
             if (this.platforms[i][1] <= -32){

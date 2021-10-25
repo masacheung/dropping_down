@@ -1,4 +1,6 @@
 import Dropping from './scripts/game';
 
-const canvas = document.getElementById('dropping-game');
-let game = new Dropping(canvas);
+window.onload = function(){
+    const canvas = document.getElementById('dropping-game');
+    let game = new Dropping(canvas);
+}

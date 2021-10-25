@@ -9,7 +9,7 @@ const CONSTANTS = {
 const hpBar = document.getElementById("hp-bar");
 
 export default class Player {
-    constructor(dimensions, running, ctx, platforms) {
+    constructor(dimensions, running, ctx) {
         this.dimensions = dimensions;
         this.x = this.dimensions.width /2.25;
         this.y = 0;
@@ -17,7 +17,7 @@ export default class Player {
         this.img = document.getElementById("img-char");
         this.life = 10;
         this.touch = undefined;
-        this.platforms = platforms;
+        this.platforms;
         this.running = running;
         this.visited = [];
         this.ctx = ctx;

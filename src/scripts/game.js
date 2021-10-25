@@ -82,7 +82,7 @@ export default class Dropping {
         this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
         this.platform = new Platform(this.diemsions, this.running);
-        this.player = new Player(this.diemsions, this.running, this.ctx, this.platform.platforms);
+        this.player = new Player(this.diemsions, this.running, this.ctx);
 
         window.addEventListener("keydown", (event) => {
             switch (event.key){
