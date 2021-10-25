@@ -68,21 +68,19 @@ export default class Platform {
             let temp2 = this.createOnePlatform();
             let last;
             if(this.platforms.length === 1){
-                last = this.platforms[0]
-            }else {
+                last = this.platforms[0];
+                temp2[1] = last[1] + 150;
+            }else if(this.platforms.length > 1){
                 last = this.platforms[this.platforms.length - 1];
+                temp2[1] = last[1] + 150;
             }
-            temp2[1] = last[1] + 150;
             if (temp2[0] - CONSTANTS.PLATFORMWIDTH > 0 && temp2[0] + CONSTANTS.PLATFORMWIDTH < 800 && ((last[0] - temp2[0]) > 150 || (temp2[0] - last[0]) > 150)){
                 this.platforms.push(temp2);
             }
         }
-        if (this.running){
-
-        } 
-        else {
+        if (!this.running){
             ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
-        }
+        } 
     }
 
     createOnePlatform() {
