@@ -10,9 +10,6 @@ const GAMESTATUS = {
     GAMEOVE: 3
 }
 
-
-
-
 export default class Dropping {
 
     constructor (canvas){
