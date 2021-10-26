@@ -2,7 +2,7 @@ Man Tat Masa Cheung
 
 <a href="https://masacheung.github.io/dropping_down/">Live Demo</a>
 
-![Image of Wireframes](https://github.com/masacheung/dropping_down/blob/main/assests/dropping.gif)
+![DEMO](https://github.com/masacheung/dropping_down/blob/main/assests/icon/dropping.gif)
 
 
 <h1>JavaScript Project</h1>
