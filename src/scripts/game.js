@@ -23,6 +23,7 @@ export default class Dropping {
         this.bgmusic.loop = true;
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
+        // this.registerKey();
         this.restart();
     }
 
@@ -38,19 +39,21 @@ export default class Dropping {
     }
 
     key(e){
-        switch (e.key){
-            case 'ArrowLeft':
-                this.player.moveLeft("keydown");
-                break;
-            case 'ArrowRight':
-                this.player.moveRight("keydown");
-                break;
-            case 'a':
-                this.player.moveLeft("keydown");
-                break;
-            case 'd':
-                this.player.moveRight("keydown");
-                break;
+        if(this.running){
+            switch (e.key){
+                case 'ArrowLeft':
+                    this.player.moveLeft("keydown");
+                    break;
+                case 'ArrowRight':
+                    this.player.moveRight("keydown");
+                    break;
+                case 'a':
+                    this.player.moveLeft("keydown");
+                    break;
+                case 'd':
+                    this.player.moveRight("keydown");
+                    break;
+            }
         }
     } 
     
@@ -86,22 +89,24 @@ export default class Dropping {
         this.platform = new Platform(this.diemsions, this.running);
         this.player = new Player(this.diemsions, this.running, this.ctx);
 
-        window.addEventListener("keydown", (event) => {
-            switch (event.key){
-                case 'ArrowLeft':
-                    this.player.moveLeft("keydown");
-                    break;
-                case 'ArrowRight':
-                    this.player.moveRight("keydown");
-                    break;
-                case 'a':
-                    this.player.moveLeft("keydown");
-                    break;
-                case 'd':
-                    this.player.moveRight("keydown");
-                    break;
-            }
-        }) 
+        if(this.att === 0){
+            window.addEventListener("keydown", (event) => {
+                switch (event.key){
+                    case 'ArrowLeft':
+                        this.player.moveLeft("keydown");
+                        break;
+                    case 'ArrowRight':
+                        this.player.moveRight("keydown");
+                        break;
+                    case 'a':
+                        this.player.moveLeft("keydown");
+                        break;
+                    case 'd':
+                        this.player.moveRight("keydown");
+                        break;
+                }
+            }) 
+        }
         this.animate();
     }
     
