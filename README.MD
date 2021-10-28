@@ -1,29 +1,18 @@
-Man Tat Masa Cheung
+# Dropping Down
 
-<a href="https://masacheung.github.io/dropping_down/">Live Demo</a>
+Dopping Down is a one player game and the goal of this game is go down as many staris as possible. Create different kind of stairs, "fake stairs", "death stairs", etc.
+Player will have 10 health point. When player lose all health point "GAME OVER". When player drop down to the ground "GAME OVER".
 
-![DEMO](https://github.com/masacheung/dropping_down/blob/main/assests/icon/dropping.gif)
+<a href="https://masacheung.github.io/dropping_down/">Play Now</a>
 
+![Gameplay Screenshot](https://github.com/masacheung/dropping_down/blob/main/assests/icon/dropping.gif)
 
-### Overview
-<ul>
-    <li>Dopping Down is a one player game and the goal of this game is go down as many staris as possible.</li>
-    <li>Create different kind of stairs, "fake stairs", "death stairs", etc.</li>
-    <li>Player will have 10 health point.</li>
-    <li>When player lose all health point "GAME OVER"</li>
-    <li>When player drop down to the ground "GAME OVER"</li>
-</ul>
+## Gameplay
+You can navigate the character by using "A", "D" keys OR arrow keys. Clike the canvas to Start the Game or Pasue the game and pause 'M' to Mute or Unmute the music.
 
-<h2>Functionality & MVPs</h2>
-<ul>
-    <li>Clike the canvas to Start the Game or Pasue the game</li>
-    <li>'M' to Mute or Unmute the music</li>
-    <li>Navigate the character by using "A", "D" keys OR arrow keys.</li>
-</ul>
+## Implementation
 
-<h2>Implementation</h2>
-
-Game Stairs
+### Game Stairs
 
 Stairs is the main feature in this game. There are four different type of stairs.
 
@@ -54,7 +43,7 @@ createOnePlatform() {
 
 ```
 
-Character touch on Stairs
+### Character touch on Stairs
 
 ```Javascript
 
@@ -110,9 +99,7 @@ touchOn(platforms){
 
 ![Image of Wireframes](https://github.com/masacheung/dropping_down/blob/main/assests/wireframs.png)
 
-https://wireframe.cc/ypTdwI
-
-<h2>Technologies, Libraries, APIs**</h2>
+<h2>Technologies, Libraries, APIs</h2>
 <ul>
     <li>Javascript</li>
     <li>HTML</li>
@@ -123,7 +110,7 @@ https://wireframe.cc/ypTdwI
 </ul>
 
 
-<h2>Implementation Timeline</h2>
+<h2>Timeline</h2>
 <ul>
     <li>Friday: Finish the HTML setup. Title, Health Point, Scoure, Game Canvas, Instroction. Create the game and character can drop down to touch "GAME OVER"</li>
     <li>Monday: Can genrate the "stairs" and can controll the character move left or right to drop down.</li>
