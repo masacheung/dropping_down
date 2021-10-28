@@ -14,7 +14,7 @@ You can navigate the character by using "A", "D" keys OR arrow keys. Clike the c
 
 ### Game Stairs
 
-Stairs is the main feature in this game. There are four different type of stairs.
+Stairs is the main feature in this game. There are four different type of stairs. I used Math.random to randomly generate different type of stairs.
 
 ```Javascript
 
@@ -43,7 +43,9 @@ createOnePlatform() {
 
 ```
 
-### Character touch on Stairs
+### Determination Character touch on Stair
+
+This is the hardest part of the project.
 
 ```Javascript
 
