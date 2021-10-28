@@ -45,7 +45,9 @@ createOnePlatform() {
 
 ### Determination Character touch on Stair
 
-This is the hardest part of the project.
+This is the hardest part of the project. First I determination the character and the stair having the same level. Second, I giving a range that is the stair width if charater within that width which mean the character is touching on the stair. 
+
+Next, I set the value to store the stair valuable to make sure the audio play once only.
 
 ```Javascript
 
