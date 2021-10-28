@@ -19,6 +19,7 @@ export default class Dropping {
         this.pauseButton = document.body.querySelector("stop");
         this.bgmusic = document.getElementById("bgmusic");
         this.bgmusic.volume = 0.4;
+        this.mute = false;
         this.att = 0;
         this.bgmusic.loop = true;
         this.diemsions = {width: canvas.width, height: canvas.height};
@@ -53,6 +54,9 @@ export default class Dropping {
                 case 'd':
                     this.player.moveRight("keydown");
                     break;
+                case 'm':
+                    this.toggleMute();
+                    break;
             }
         }
     } 
@@ -78,7 +82,9 @@ export default class Dropping {
         this.hour = start.getHours();
         this.min = start.getMinutes();
         this.sec = start.getSeconds();
-        this.bgmusic.play();
+        if(this.mute === false){
+            this.bgmusic.play();
+        }
         this.animate();
     }
 
@@ -86,11 +92,14 @@ export default class Dropping {
         this.running = false;
         this.gamestatus = GAMESTATUS.GAMEOVE;
         this.score = 0;
-        this.platform = new Platform(this.diemsions, this.running);
-        this.player = new Player(this.diemsions, this.running, this.ctx);
+        this.platform = new Platform(this.diemsions, this.running, this.mute);
+        this.player = new Player(this.diemsions, this.running, this.ctx, this.mute);
 
         if(this.att === 0){
             window.addEventListener("keydown", (event) => {
+                if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(event.code) > -1) {
+                    event.preventDefault();
+                }
                 switch (event.key){
                     case 'ArrowLeft':
                         this.player.moveLeft("keydown");
@@ -103,6 +112,9 @@ export default class Dropping {
                         break;
                     case 'd':
                         this.player.moveRight("keydown");
+                        break;
+                    case 'm':
+                        this.toggleMute();
                         break;
                 }
             }) 
@@ -125,7 +137,9 @@ export default class Dropping {
             this.att += 1;
             this.bgmusic.pause();
             this.bgmusic.currentTime = 0;
-            this.gameoverAUDIO.play();
+            if(this.mute === false){
+                this.gameoverAUDIO.play();
+            }
             alert("Your score is " + this.score + " not BAD!!!");
 
             this.restart();
@@ -151,6 +165,20 @@ export default class Dropping {
             this.gamestatus = GAMESTATUS.PAUSED;
             this.running = false;
             this.bgmusic.pause();
+        }
+    }
+
+    toggleMute(){
+        if(this.mute === true){
+            this.bgmusic.play();
+            this.player.toggleMute();
+            this.platform.toggleMute();
+            this.mute = false;
+        }else {
+            this.mute = true;
+            this.bgmusic.pause();
+            this.player.toggleMute();
+            this.platform.toggleMute();
         }
     }
 

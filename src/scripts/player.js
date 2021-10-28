@@ -9,7 +9,7 @@ const CONSTANTS = {
 const hpBar = document.getElementById("hp-bar");
 
 export default class Player {
-    constructor(dimensions, running, ctx) {
+    constructor(dimensions, running, ctx, mute) {
         this.dimensions = dimensions;
         this.x = this.dimensions.width /2.25;
         this.y = 0;
@@ -31,6 +31,7 @@ export default class Player {
         this.platformTrampolineAudio = document.getElementById("trampoline");
         this.platformTrapAudio = document.getElementById("trap");
         this.platformFakeAudio = document.getElementById("fake");
+        this.mute = mute;
     }
 
     keyDown(e) {
@@ -142,24 +143,33 @@ export default class Player {
                 if (this.x  - ele[0] > -45 && this.x - ele[0] < 115){
                     this.touch = ele;
                     if (ele[2] === "fake") {
-                        this.platformFakeAudio.play();
+                        if(this.mute === false){
+                            this.platformFakeAudio.play();
+                        }
                     }
                     if (ele[2] === "trampoline") {
-                        this.platformTrampolineAudio.play();
+                        if(this.mute === false){
+                            this.platformTrampolineAudio.play();
+                        }
                     }else if (!this.visited.includes(ele[3])){
                         this.visited.push(ele[3]);
                         if (ele[2] === "normal"){
                             if (this.life < 10){
                                 this.life += 1;
-                                this.platformHealingAudio.play();
+                                if(this.mute === false){
+                                    this.platformHealingAudio.play();
+                                }
                                 this.healGreen(this.ctx);
                                 this.updateHpBar();
                             }else {
-                                this.platformAudio.play();
+                                if(this.mute === false){
+                                    this.platformAudio.play();
+                                }
                             }
                         }else if (ele[2] === "trap"){
-
-                            this.platformTrapAudio.play();
+                            if(this.mute === false){
+                                this.platformTrapAudio.play();
+                            }
                             this.trapRed(this.ctx);
                             this.life -= 4;
                             this.updateHpBar();
@@ -206,4 +216,13 @@ export default class Player {
         ctx.fillRect(0,0, this.dimensions.width, this.dimensions.height);
         ctx.fillStyle = "rgba(0,0,0,0.3)";
     }
+
+    toggleMute(){
+        if(this.mute === true){
+            this.mute = false;
+        }else {
+            this.mute = true;
+        }
+    }
+
 }

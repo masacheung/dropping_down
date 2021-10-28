@@ -8,7 +8,7 @@ const CONSTANTS = {
 const TAG = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 export default class Platform {
-    constructor(dimensions, running) {
+    constructor(dimensions, running, mute) {
         this.dimensions = dimensions;
         this.img = document.getElementById("img-bg");
         this.fireImg = document.getElementById("img-fire");
@@ -22,6 +22,7 @@ export default class Platform {
         this.platforms = [];
         this.running = running;
         this.score = 0;
+        this.mute = mute;
     }
     animate(ctx, running) {
         this.running = running;
@@ -52,8 +53,10 @@ export default class Platform {
             ctx.fillText("Leaderboard!!! →", 700, this.dimensions.height - 400);
 
             ctx.fillText("Click to Start. Click To Pause.", this.dimensions.width/2, this.dimensions.height - 350);
+            ctx.fillText("Click [M] to mute / unmute.", this.dimensions.width/2, this.dimensions.height - 320);
             ctx.fillText("Moving Left Using [A] OR [←].", this.dimensions.width/2, this.dimensions.height - 270);
             ctx.fillText("Moving Right Using [D] OR [→].", this.dimensions.width/2, this.dimensions.height - 240);
+
         }
     }
 
@@ -119,7 +122,9 @@ export default class Platform {
         }
 
         if(this.score === 36 || this.score === 56 || this.score === 76 || this.score === 101){
-            this.levelUpAudio.play();
+            if(this.mute === false){
+                this.levelUpAudio.play();
+            }
         }
         for(let i = 0; i < this.platforms.length; i++){
             this.platforms[i][1] -= speed;
@@ -147,6 +152,14 @@ export default class Platform {
 
     updateScore(score){
         this.score = score;
+    }
+
+    toggleMute(){
+        if(this.mute === true){
+            this.mute = false;
+        }else {
+            this.mute = true;
+        }
     }
 
 }
