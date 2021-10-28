@@ -21,7 +21,7 @@ Man Tat Masa Cheung
     <li>Navigate the character by using "A", "D" keys OR arrow keys.</li>
 </ul>
 
-### Implementation
+<h2>Implementation</h2>
 
 Game Stairs
 
