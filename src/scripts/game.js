@@ -24,7 +24,6 @@ export default class Dropping {
         this.bgmusic.loop = true;
         this.diemsions = {width: canvas.width, height: canvas.height};
         this.registerEvents();
-        // this.registerKey();
         this.restart();
     }
 
