@@ -81,9 +81,6 @@ export default class Platform {
                 this.platforms.push(temp2);
             }
         }
-        // if (!this.running){
-        //     Break
-        // } 
     }
 
     createOnePlatform() {
